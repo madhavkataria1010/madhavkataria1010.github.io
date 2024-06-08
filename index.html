@@ -3,108 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madhav Kataria's Portfolio</title>
+    <title>Madhav Kataria | Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
 </head>
 <body>
     <header>
-        <div class="container">
-            <img src="path/to/your/photo.jpg" alt="Madhav Kataria" class="profile-pic">
-            <h1>Madhav Kataria</h1>
-            <p>Jodhpur, Rajasthan 342030 • <a href="mailto:b23ch1025@iitj.ac.in">b23ch1025@iitj.ac.in</a></p>
-            <p><a href="https://github.com/madhavkataria1010/" target="_blank">Github</a> • <a href="https://www.linkedin.com/in/madhavkataria/" target="_blank">LinkedIn</a></p>
-        </div>
+        <img src="https://capsule-render.vercel.app/api?type=waving&height=200&text=Hi%20there,%20I'm%20Madhav%20👋!&fontAlign=50&fontAlignY=40&color=gradient" alt="Banner">
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills & Interests</a></li>
-        </ul>
-    </nav>
+    <main>
+        <section id="about" class="section">
+            <h2 align="center">I build and break AI stuff >_< & CyberSec</h2>
+            <div class="profile">
+                <img src="assets/profile.png" alt="Profile Picture" height="200">
+                <p>Welcome! I'm Madhav Kataria, passionate about AI and Cyber Security.</p>
+            </div>
+        </section>
 
-    <section id="education">
-        <div class="container">
-            <h2>Education</h2>
+        <section id="social" class="section">
+            <h2>🌐 Social</h2>
+            <p>
+                <a href="https://www.linkedin.com/in/vishal-yadav-9871451b0/"><img src="https://img.shields.io/badge/-Madhav_Kataria-blue?style=flat-square&logo=Linkedin&logoColor=white"></a>
+                <a href="https://www.instagram.com/madhavkataria_"><img src="https://img.shields.io/badge/-madhavkataria__-purple?style=flat-square&logo=Instagram&logoColor=white"></a>
+                <a href="https://github.com/madhavkataria1010"><img src="https://img.shields.io/github/followers/madhavkataria1010?label=follow&style=social"></a>
+            </p>
+        </section>
+
+        <section id="projects" class="section">
+            <h2>Key Projects</h2>
+            <!-- Add your projects here -->
+        </section>
+
+        <section id="skills" class="section">
+            <h2>🔧 Tools & Technologies</h2>
             <ul>
-                <li><strong>B.Tech. Chemical Engineering</strong>, Indian Institute of Technology Jodhpur (2023-2027)</li>
-                <li><strong>Senior Secondary</strong>, U.S.M. Sr. Sec. Public School (77.4%, 2023)</li>
-                <li><strong>Secondary</strong>, OP Jindal Modern School (93.8%, 2021)</li>
+                <li>![OpenAI](https://img.shields.io/badge/-OpenAI-black?style=flat-square&logo=OpenAI)</li>
+                <li>![PyTorch](https://img.shields.io/badge/-PyTorch-black?style=flat-square&logo=PyTorch)</li>
+                <li>![Tensorflow](https://img.shields.io/badge/-Tensorflow-black?style=flat-square&logo=Tensorflow)</li>
             </ul>
-        </div>
-    </section>
 
-    <section id="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="project">
-                <h3>Intelligent Football Agents Using Deep Q-Networks</h3>
-                <p>RAID (AI Club IITJ) • January 2024 – Ongoing</p>
-                <ul>
-                    <li>Implemented Deep Q-Networks (DQN) to train two agents to play football from scratch.</li>
-                    <li>Designed and implemented a reinforcement learning system, empowering agents to independently learn game dynamics and strategies, leading to a 40% enhancement in strategic decision-making accuracy and gameplay efficiency.</li>
-                    <li>Demonstrated the effectiveness of DQN by achieving an 85% success rate in training intelligent agents to master complex football strategies.</li>
-                    <li>Showcased 3D simulation using the UNITY engine.</li>
-                </ul>
-            </div>
-
-            <div class="project">
-                <h3>High-Performance CNN Implementation in C</h3>
-                <p>Course Project • March 2024 – June 2024</p>
-                <p>Advisor: Dr. Mayank Vatsa</p>
-                <ul>
-                    <li>Developed a Convolutional Neural Network (CNN) from scratch in C, improving inference speed by 90% compared to Python implementations.</li>
-                    <li>Utilized the MNIST dataset to achieve a model accuracy of 98.5%.</li>
-                    <li>Achieved an inference time of 1/10 of a second compared to Python.</li>
-                    <li>Reached an accuracy of 98.5%.</li>
-                </ul>
-            </div>
-
-            <div class="project">
-                <h3>AI Agent for Domain-Specific QA</h3>
-                <p>December 2023 – March 2024</p>
-                <ul>
-                    <li>Developed an AI solution for domain-specific question answering using GPT-4.</li>
-                    <li>Engineered prompts and used Chain of Thought (CoT) strategy to enhance AI capabilities.</li>
-                    <li>Achieved a 40% reduction in support ticket resolution times.</li>
-                    <li>Projected annual savings of over $2.2 million through increased efficiency.</li>
-                    <li>Technologies: GPT-4, prompt engineering, CoT, multi-task learning, model distillation.</li>
-                </ul>
-            </div>
-
-            <div class="project">
-                <h3>SOLINAS Product Design Challenge</h3>
-                <p>December 2023 – March 2024</p>
-                <ul>
-                    <li>Designed a CAD model for a flexible, retractable shaft to mix semi-solid wastewater, improving mixing efficiency by 30%.</li>
-                    <li>Innovated a motorized spool mechanism that decreased retraction and expansion time by 50%, boosting production speed by 30% and reducing machine downtime by 20%.</li>
-                    <li>Implemented adjustable paddle blades, increasing mixing consistency.</li>
-                    <li>Used materials like Aluminum 6061, Stainless Steel, and Nylon 6,6.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills">
-        <div class="container">
-            <h2>Skills & Interests</h2>
+            <h2>Languages</h2>
             <ul>
-                <li><strong>Programming:</strong> C/C++, Python, JavaScript, Swift</li>
-                <li><strong>Tools & OS:</strong> Unity engine, Git, Jupyter Notebook, Google Colab, Linux, macOS, Windows, iOS</li>
-                <li><strong>Libraries/Frameworks:</strong> Pandas, NumPy, scikit-learn, PyTorch, Keras, TensorFlow, Matplotlib, Weights and Biases</li>
+                <li>![Python](https://img.shields.io/badge/-Python-black?style=flat-square&logo=python)</li>
+                <li>![HTML5](https://img.shields.io/badge/-HTML5-black?style=flat-square&logo=html5&logoColor=E34F26)</li>
+                <li>![C++](https://img.shields.io/badge/-C++-black?style=flat-square&logo=cplusplus&logoColor=blue)</li>
+                <li>![C](https://img.shields.io/badge/-C-black?style=flat-square&logo=c&logoColor=blue)</li>
+                <li>![JavaScript](https://img.shields.io/badge/-JavaScript-black?style=flat-square&logo=javascript)</li>
+                <li>![Swift](https://img.shields.io/badge/-Swift-black?style=flat-square&logo=swift)</li>
+                <li>![Git](https://img.shields.io/badge/-Git-black?style=flat-square&logo=git)</li>
             </ul>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <footer>
-        <div class="container">
-            <p>© 2024 Madhav Kataria</p>
-        </div>
+    <footer id="contact" class="section">
+        <h2>Contact</h2>
+        <p>Reach out to me at <a href="mailto:b23ch1025@iitj.ac.in">b23ch1025@iitj.ac.in</a></p>
     </footer>
-
-    <button id="backToTopBtn">Back to Top</button>
-
-    <script src="scripts.js"></script>
+    
+    <button id="backToTopBtn">Top</button>
 </body>
 </html>
