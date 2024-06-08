@@ -1,21 +1,34 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #f0f8ff;
     color: #333;
 }
 
-header {
-    background-color: #4CAF50;
-    color: white;
+.container {
+    max-width: 900px;
+    margin: 0 auto;
     padding: 20px;
+}
+
+header {
+    background-color: #1e90ff;
+    color: white;
+    padding: 20px 0;
     text-align: center;
-    animation: slideIn 1s ease-out;
+    position: relative;
+}
+
+header img.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 20px;
 }
 
 header h1 {
-    margin: 0;
+    margin: 10px 0;
     font-size: 2.5em;
 }
 
@@ -32,18 +45,47 @@ header a:hover {
     text-decoration: underline;
 }
 
+nav {
+    background-color: #4682b4;
+    text-align: center;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
 section {
-    padding: 20px;
-    margin: 10px auto;
-    max-width: 800px;
+    padding: 40px 0;
     background-color: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    opacity: 0;
+    margin: 20px 0;
+    border-radius: 10px;
     animation: fadeIn 1.5s forwards;
 }
 
 h2 {
-    color: #4CAF50;
+    color: #1e90ff;
+    border-bottom: 2px solid #1e90ff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 ul {
@@ -52,7 +94,7 @@ ul {
 }
 
 ul li {
-    margin: 5px 0;
+    margin: 10px 0;
 }
 
 .project {
@@ -66,7 +108,7 @@ ul li {
 }
 
 .project p, .project ul {
-    margin: 5px 0;
+    margin: 10px 0;
 }
 
 .project ul {
@@ -74,8 +116,12 @@ ul li {
     list-style-type: disc;
 }
 
-.project ul li {
-    margin: 5px 0;
+footer {
+    background-color: #1e90ff;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
 }
 
 #backToTopBtn {
@@ -87,7 +133,7 @@ ul li {
     font-size: 18px;
     border: none;
     outline: none;
-    background-color: #4CAF50;
+    background-color: #1e90ff;
     color: white;
     cursor: pointer;
     padding: 15px;
@@ -96,15 +142,14 @@ ul li {
 }
 
 #backToTopBtn:hover {
-    background-color: #555;
+    background-color: #4682b4;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideIn {
-    from { transform: translateY(-100%); }
-    to { transform: translateY(0); }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

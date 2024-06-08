@@ -1,6 +1,9 @@
-const backToTopBtn = document.getElementById("backToTopBtn");
+// Back to Top Button
+var backToTopBtn = document.getElementById("backToTopBtn");
 
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function() {
+    scrollFunction();
+};
 
 function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -10,7 +13,7 @@ function scrollFunction() {
     }
 }
 
-backToTopBtn.addEventListener("click", function() {
+backToTopBtn.addEventListener('click', function() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 });
