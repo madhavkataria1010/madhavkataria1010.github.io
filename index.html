@@ -1,129 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0; url=https://madhavkataria.com/">
-    <title>Madhav Kataria | Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" defer></script>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Madhav Kataria | AI Researcher</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['-apple-system', 'BlinkMacSystemFont', "SF Pro Display", "Segoe UI", 'Roboto', "Helvetica Neue", 'Arial', 'sans-serif'],
+            },
+            colors: {
+              'apple-gray': '#f5f5f7',
+              'apple-dark': '#1d1d1f',
+              'apple-card': '#1c1c1e',
+              'apple-blue': '#2997ff',
+            },
+            backdropBlur: {
+              xs: '2px',
+              xl: '20px',
+              '2xl': '40px',
+              '3xl': '60px',
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.8s ease-out',
+              'slide-up': 'slideUp 1s cubic-bezier(0.16, 1, 0.3, 1)',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'aurora': 'aurora 10s infinite alternate',
+              'float': 'float 6s ease-in-out infinite',
+              'glow': 'glow 3s ease-in-out infinite alternate',
+              'bloom': 'bloom 10s ease-in-out infinite',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(40px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              aurora: {
+                '0%': { transform: 'translate(0, 0) scale(1)' },
+                '100%': { transform: 'translate(20px, -20px) scale(1.1)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              glow: {
+                '0%': { boxShadow: '0 0 20px rgba(41, 151, 255, 0.2)' },
+                '100%': { boxShadow: '0 0 40px rgba(41, 151, 255, 0.6)' },
+              },
+              bloom: {
+                '0%, 100%': { opacity: '0', transform: 'scale(0.6) filter(blur(80px))' },
+                '50%': { opacity: '0.8', transform: 'scale(1.4) filter(blur(60px))' },
+              }
+            }
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Global smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      .no-scrollbar::-webkit-scrollbar {
+          display: none;
+      }
+      /* Hide scrollbar for IE, Edge and Firefox */
+      .no-scrollbar {
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
+      }
+      body {
+        background-color: #000;
+        color: #f5f5f7;
+        -webkit-font-smoothing: antialiased;
+      }
+      
+      /* Custom selection color */
+      ::selection {
+        background-color: rgba(41, 151, 255, 0.3);
+        color: white;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
 </head>
-<body>
-    <header>
-        <img src="https://capsule-render.vercel.app/api?type=waving&height=200&text=Hi%20there,%20I'm%20Madhav%20👋!&fontAlign=50&fontAlignY=40&color=gradient" alt="Banner">
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section id="about" class="section">
-            <div class="container">
-                <h2 align="center">I build and break AI stuff >_< & CyberSec</h2>
-                <div class="profile">
-                    <p>Welcome! I'm Madhav Kataria, passionate about AI and Cyber Security.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="social" class="section">
-            <div class="container">
-                <h2>🌐 Social</h2>
-                <p>
-                    <a href="https://www.linkedin.com/in/vishal-yadav-9871451b0/"><img src="https://img.shields.io/badge/-Madhav_Kataria-blue?style=flat-square&logo=Linkedin&logoColor=white"></a>
-                    <a href="https://www.instagram.com/madhavkataria_"><img src="https://img.shields.io/badge/-madhavkataria__-purple?style=flat-square&logo=Instagram&logoColor=white"></a>
-                    <a href="https://github.com/madhavkataria1010"><img src="https://img.shields.io/github/followers/madhavkataria1010?label=follow&style=social"></a>
-                </p>
-            </div>
-        </section>
-
-        <section id="projects" class="section">
-            <div class="container">
-                <h2>Key Projects</h2>
-                <div class="project">
-                    <h3>Intelligent Football Agents Using Deep Q-Networks</h3>
-                    <p>RAID (AI Club IITJ) • January 2024 – Ongoing</p>
-                    <ul>
-                        <li>Implemented Deep Q-Networks (DQN) to train two agents to play football from scratch.</li>
-                        <li>Designed and implemented a reinforcement learning system, empowering agents to independently learn game dynamics and strategies, leading to a 40% enhancement in strategic decision-making accuracy and gameplay efficiency.</li>
-                        <li>Demonstrated the effectiveness of DQN by achieving an 85% success rate in training intelligent agents to master complex football strategies.</li>
-                        <li>Showcased 3D simulation using the UNITY engine.</li>
-                    </ul>
-                </div>
-        
-                <div class="project">
-                    <h3>High-Performance CNN Implementation in C</h3>
-                    <p>Course Project • March 2024 – June 2024</p>
-                    <p>Advisor: Dr. Mayank Vatsa</p>
-                    <ul>
-                        <li>Developed a Convolutional Neural Network (CNN) from scratch in C, improving inference speed by 90% compared to Python implementations.</li>
-                        <li>Utilized the MNIST dataset to achieve a model accuracy of 98.5%.</li>
-                        <li>Achieved an inference time of 1/10 of a second compared to Python.</li>
-                        <li>Reached an accuracy of 98.5%.</li>
-                    </ul>
-                </div>
-        
-                <div class="project">
-                    <h3>AI Agent for Domain-Specific QA</h3>
-                    <p>December 2023 – March 2024</p>
-                    <ul>
-                        <li>Developed an AI solution for domain-specific question answering using GPT-4.</li>
-                        <li>Engineered prompts and used Chain of Thought (CoT) strategy to enhance AI capabilities.</li>
-                        <li>Achieved a 40% reduction in support ticket resolution times.</li>
-                        <li>Projected annual savings of over $2.2 million through increased efficiency.</li>
-                        <li>Technologies: GPT-4, prompt engineering, CoT, multi-task learning, model distillation.</li>
-                    </ul>
-                </div>
-        
-                <div class="project">
-                    <h3>SOLINAS Product Design Challenge</h3>
-                    <p>December 2023 – March 2024</p>
-                    <ul>
-                        <li>Designed a CAD model for a flexible, retractable shaft to mix semi-solid wastewater, improving mixing efficiency by 30%.</li>
-                        <li>Innovated a motorized spool mechanism that decreased retraction and expansion time by 50%, boosting production speed by 30% and reducing machine downtime by 20%.</li>
-                        <li>Implemented adjustable paddle blades, increasing mixing consistency.</li>
-                        <li>Used materials like Aluminum 6061, Stainless Steel, and Nylon 6,6.</li>
-                    </ul>
-                </div>
-        
-            </div>
-        </section>
-
-        <section id="skills" class="section">
-            <div class="container">
-                <h2>🔧 Tools & Technologies</h2>
-                <ul>
-                    <li>OpenAI</li>
-                    <li>PyTorch</li>
-                    <li>Tensorflow</li>
-                </ul>
-
-                <h2>Languages</h2>
-                <ul>
-                    <li>Python</li>
-                    <li>HTML5</li>
-                    <li>C++</li>
-                    <li>C</li>
-                    <li>JavaScript</li>
-                    <li>Swift</li>
-                    <li>Git</li>
-                </ul>
-            </div>
-        </section>
-    </main>
-
-    <footer id="contact" class="section">
-        <div class="container">
-            <h2>Contact</h2>
-            <p>Reach out to me at <a href="mailto:b23ch1025@iitj.ac.in">b23ch1025@iitj.ac.in</a></p>
-        </div>
-    </footer>
-    
-    <button id="backToTopBtn">Top</button>
-</body>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>
