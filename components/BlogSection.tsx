@@ -159,6 +159,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => {
               <button
                 onClick={() => setSelectedPost(null)}
                 className="p-2 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-white hover:bg-white hover:text-black transition-colors"
+                aria-label="Close modal"
               >
                 <X size={24} />
               </button>
