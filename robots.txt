@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.github/
+
+# Sitemap
+Sitemap: https://madhavkataria1010.github.io/sitemap.xml
+
+# Crawl-delay (optional, for polite crawling)
+Crawl-delay: 1

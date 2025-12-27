@@ -12,7 +12,7 @@ const ResearchSection: React.FC<ResearchSectionProps> = ({ papers }) => {
             {/* Subtle glow background removed as requested */}
 
             <div className="max-w-4xl mx-auto px-6 relative z-10">
-                <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-16 text-center">Research & Publications</h2>
+                <h2 className="text-4xl md:text-5xl font-semibold tracking-tighter mb-16 text-center">AI Research & Academic Publications</h2>
 
                 <div className="space-y-6">
                     {papers.map((paper) => (

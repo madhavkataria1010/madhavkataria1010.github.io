@@ -108,9 +108,9 @@ const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => {
     <section id="blogs" className="py-32 bg-black relative">
       <div className="max-w-6xl mx-auto px-6">
         <div className="mb-20">
-          <h2 className="text-5xl md:text-7xl font-semibold tracking-tighter text-white mb-6">Blogs.</h2>
+          <h2 className="text-5xl md:text-7xl font-semibold tracking-tighter text-white mb-6">AI & Machine Learning Blog</h2>
           <p className="text-gray-400 text-xl font-light max-w-2xl">
-            Thoughts on AI architecture, VLM optimization, and the future of software.
+            Insights on AI architecture, VLM optimization, agentic workflows, and the future of intelligent software.
           </p>
         </div>
 

@@ -24,10 +24,10 @@ const BentoGrid: React.FC<BentoGridProps> = ({ projects }) => {
         <section id="projects" className="py-32 relative bg-black">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="mb-24 md:mb-32">
-                    <h2 className="text-5xl md:text-7xl font-semibold tracking-tighter text-white mb-6">Selected Projects.</h2>
+                    <h2 className="text-5xl md:text-7xl font-semibold tracking-tighter text-white mb-6">AI & ML Projects</h2>
                     <p className="text-gray-400 text-xl md:text-2xl max-w-2xl font-light">
-                        From autonomous agents to procedural worlds. <br />
-                        Systems engineered for scale and performance.
+                        From autonomous AI agents to procedural world generation. <br />
+                        Systems engineered for scale, performance, and real-world impact.
                     </p>
                 </div>
 
@@ -60,7 +60,7 @@ const BentoGrid: React.FC<BentoGridProps> = ({ projects }) => {
                                 <div className="absolute inset-0 z-0 overflow-hidden">
                                     <img
                                         src={project.imageUrl}
-                                        alt={project.title}
+                                        alt={`${project.title} - ${project.category} AI project by Madhav Kataria using ${project.techStack.slice(0, 2).join(' and ')}`}
                                         loading="lazy"
                                         className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-110 group-hover:blur-md group-hover:opacity-40 opacity-60"
                                     />
