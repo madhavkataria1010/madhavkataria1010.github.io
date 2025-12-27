@@ -29,10 +29,3 @@ export interface BlogPost {
   content: string; // Markdown content
   tags: string[];
 }
-
-export interface ChatMessage {
-  id: string;
-  role: 'user' | 'model';
-  text: string;
-  isError?: boolean;
-}
