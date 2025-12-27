@@ -16,7 +16,13 @@ const ResearchSection: React.FC<ResearchSectionProps> = ({ papers }) => {
 
                 <div className="space-y-6">
                     {papers.map((paper) => (
-                        <div key={paper.id} className="group relative p-8 rounded-3xl bg-[#161617]/60 backdrop-blur-xl border border-white/10 hover:bg-[#1c1c1e] transition-all duration-300 hover:scale-[1.02] cursor-pointer">
+                        <a
+                            key={paper.id}
+                            href={paper.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group relative p-8 rounded-3xl bg-[#161617]/60 backdrop-blur-xl border border-white/10 hover:bg-[#1c1c1e] transition-all duration-300 hover:scale-[1.02] cursor-pointer block"
+                        >
                             <div className="flex flex-col md:flex-row gap-6">
                                 <div className="flex-1">
                                     <div className="flex items-center gap-3 mb-3">
@@ -38,12 +44,12 @@ const ResearchSection: React.FC<ResearchSectionProps> = ({ papers }) => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     ))}
                 </div>
 
                 <div className="mt-12 text-center">
-                    <a href="#" className="inline-flex items-center text-gray-400 hover:text-white transition-colors text-sm font-medium">
+                    <a href="https://scholar.google.com/citations?user=wC2Wm9gAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-gray-400 hover:text-white transition-colors text-sm font-medium">
                         View Google Scholar Profile <ArrowRight size={14} className="ml-2" />
                     </a>
                 </div>

@@ -102,6 +102,7 @@ export const PAPERS: ResearchPaper[] = [
     conference: 'ICCV',
     year: '2025',
     abstract: 'Oral Presentation (Top 5%) · Best Paper. A novel framework for retrieval-based video generation and vision-language alignment, focusing on complex narrative structures.',
+    link: 'https://arxiv.org/abs/2508.08508'
   }
 ];
 
@@ -114,8 +115,6 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: 'Moving beyond brittle LLM chains to autonomous systems that plan, reason, and correct themselves.',
     tags: ['Agents', 'LLMs', 'Architecture'],
     content: `
-# The Future of Agentic Workflows
-
 Traditional LLM chains are often brittle. They execute a linear sequence of steps and fail if one step goes wrong. The future of AI application development belongs to **autonomous agents** that can plan, reason, and correct themselves.
 
 ## From Chains to Graphs
@@ -149,8 +148,6 @@ Standardizing how models interface with external tools is critical. By using **M
     excerpt: 'Techniques for serving Vision-Language Models with sub-second latency using VLLM and quantization.',
     tags: ['VLM', 'Performance', 'CUDA'],
     content: `
-# Optimizing VLM Inference
-
 Serving Vision-Language Models (VLMs) like **Llava** or **Gemini-Pro-Vision** in real-time is computationally expensive. High latency kills user experience, especially in voice-to-voice applications like my **Jarvis** project.
 
 ## KV Caching & PagedAttention
@@ -179,8 +176,6 @@ The result? A fully local VLM pipeline running on consumer hardware with <500ms 
     excerpt: 'A dive into the features and benefits of the Next.js App Router, and how it changes web development.',
     tags: ['Next.js', 'React', 'Web Dev'],
     content: `
-# Exploring the Next.js App Router
-
 The introduction of the **App Router** in Next.js 13 marked a paradigm shift in how we build React applications. It represents a move from the traditional \`pages\` directory to a new \`app\` directory structure that fully embraces **React Server Components (RSC)**.
 
 ## Key Features
@@ -209,8 +204,6 @@ The App Router isn't just a directory change; it's a mental model shift. It alig
     excerpt: 'Welcome to my blog! Here I will share my journey in software engineering and AI.',
     tags: ['Personal', 'Intro'],
     content: `
-# My First Blog Post
-
 Hello world! I'm **Madhav Kataria**, and this is my first blog post.
 
 I created this space to share my experiences, learnings, and experiments in the world of **Artificial Intelligence** and **Software Engineering**.

@@ -61,10 +61,19 @@ const SimpleMarkdown = ({ content }: { content: string }) => {
 
     // Lists
     if (line.trim().startsWith('* ') || line.trim().startsWith('- ')) {
+      const listText = line.trim().slice(2);
+      // Parse bold text in list items
+      const parts = listText.split(/(\*\*.*?\*\*)/g);
+      const parsedListText = parts.map((part, i) => {
+        if (part.startsWith('**') && part.endsWith('**')) {
+          return <strong key={i} className="text-white font-bold">{part.slice(2, -2)}</strong>;
+        }
+        return part;
+      });
       elements.push(
         <div key={index} className="flex items-start gap-3 mb-2 ml-4">
           <span className="text-apple-blue mt-1.5 shrink-0 text-[10px]">●</span>
-          <span className="text-gray-300 leading-relaxed">{line.trim().slice(2)}</span>
+          <span className="text-gray-300 leading-relaxed">{parsedListText}</span>
         </div>
       );
       return;
@@ -153,7 +162,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => {
           />
 
           {/* Content Card */}
-          <div className="relative w-full max-w-4xl h-full max-h-[90vh] bg-[#1c1c1e] border border-white/10 rounded-[2rem] shadow-2xl overflow-hidden flex flex-col animate-slide-up">
+          <div className="relative w-full max-w-6xl h-full max-h-[90vh] bg-[#1c1c1e] border border-white/10 rounded-[2rem] shadow-2xl overflow-hidden flex flex-col animate-slide-up">
             {/* Header */}
             <div className="absolute top-0 left-0 right-0 p-6 flex justify-between items-start z-10 bg-gradient-to-b from-[#1c1c1e] to-transparent">
               <button
@@ -167,7 +176,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => {
 
             {/* Scrollable Content */}
             <div className="overflow-y-auto h-full custom-scrollbar">
-              <div className="pt-24 pb-16 px-8 md:px-20 max-w-3xl mx-auto">
+              <div className="pt-24 pb-16 px-8 md:px-16 max-w-5xl mx-auto">
                 <div className="mb-12 border-b border-white/10 pb-12">
                   <div className="flex gap-4 text-sm text-gray-400 mb-6">
                     <span className="flex items-center gap-2"><Calendar size={16} /> {selectedPost.date}</span>
