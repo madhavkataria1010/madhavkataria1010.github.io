@@ -27,10 +27,10 @@ const Footer: React.FC = () => {
         
         <div className="flex flex-col md:flex-row items-center justify-between py-8 border-t border-white/10 mt-12">
             <div className="flex items-center gap-8 mb-4 md:mb-0">
-                <a href="https://github.com" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110">
                     <Github size={22} />
                 </a>
-                <a href="https://linkedin.com" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110">
                     <Linkedin size={22} />
                 </a>
                 <a href="#" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110">

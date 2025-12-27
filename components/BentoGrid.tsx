@@ -61,6 +61,7 @@ const BentoGrid: React.FC<BentoGridProps> = ({ projects }) => {
                                     <img
                                         src={project.imageUrl}
                                         alt={project.title}
+                                        loading="lazy"
                                         className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-110 group-hover:blur-md group-hover:opacity-40 opacity-60"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80" />
