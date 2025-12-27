@@ -226,9 +226,3 @@ Stay tuned for more!
     `
   }
 ];
-
-export const SKILLS = [
-  "Python", "C++", "Rust", "CUDA", "PyTorch", "VLLM", "FastAPI", "React", "Docker", "Kubernetes", "CrewAI", "Playwright"
-];
-
-export const BIO = `I am Madhav Kataria, an AI Researcher & Full-Stack ML Developer. Currently at IIT Jodhpur, I specialize in building scalable AI systems—from real-time voice assistants serving thousands of users to novel Vision-Language Models recognized at ICCV. I bridge the gap between high-performance computing and generative AI.`;

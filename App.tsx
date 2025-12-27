@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import BentoGrid from './components/BentoGrid';
-import ResearchSection from './components/ResearchSection';
-import BlogSection from './components/BlogSection';
-import Footer from './components/Footer';
 import { PROJECTS, PAPERS, BLOG_POSTS } from './constants';
+
+const BentoGrid = React.lazy(() => import('./components/BentoGrid'));
+const ResearchSection = React.lazy(() => import('./components/ResearchSection'));
+const BlogSection = React.lazy(() => import('./components/BlogSection'));
+const Footer = React.lazy(() => import('./components/Footer'));
 
 const App: React.FC = () => {
   return (
@@ -13,11 +14,15 @@ const App: React.FC = () => {
       <Navbar />
       <main>
         <Hero />
-        <BentoGrid projects={PROJECTS} />
-        <ResearchSection papers={PAPERS} />
-        <BlogSection posts={BLOG_POSTS} />
+        <Suspense fallback={<div className="h-screen bg-black" />}>
+          <BentoGrid projects={PROJECTS} />
+          <ResearchSection papers={PAPERS} />
+          <BlogSection posts={BLOG_POSTS} />
+        </Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </div>
   );
 };

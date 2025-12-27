@@ -66,6 +66,7 @@ const Navbar: React.FC = () => {
           <button
             className="md:hidden text-white p-2 rounded-full hover:bg-white/10 transition-colors"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
           >
             {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
