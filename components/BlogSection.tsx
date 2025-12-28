@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { BlogPost } from '../types';
 import { X, Calendar, Clock, ArrowRight, Tag } from 'lucide-react';
 
@@ -102,7 +103,9 @@ const SimpleMarkdown = ({ content }: { content: string }) => {
 };
 
 const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => {
-  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
+  const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
+  const selectedPost = slug ? posts.find(p => p.slug === slug) || null : null;
 
   return (
     <section id="blogs" className="py-32 bg-black relative">
@@ -120,7 +123,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => {
             <article
               key={post.id}
               className="group cursor-pointer flex-shrink-0 w-[85vw] md:w-[450px] snap-center flex flex-col h-[400px] p-8 rounded-[2rem] bg-[#101010] border border-white/10 hover:border-white/30 transition-all duration-300 hover:scale-[1.01]"
-              onClick={() => setSelectedPost(post)}
+              onClick={() => navigate(`/blogs/${post.slug}`)}
             >
               <div className="flex items-center gap-4 text-sm text-gray-500 mb-6">
                 <span className="flex items-center gap-1.5"><Calendar size={14} /> {post.date}</span>
@@ -158,7 +161,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => {
           {/* Backdrop */}
           <div
             className="absolute inset-0 bg-black/60 backdrop-blur-xl transition-opacity"
-            onClick={() => setSelectedPost(null)}
+            onClick={() => navigate('/')}
           />
 
           {/* Content Card */}
@@ -166,7 +169,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => {
             {/* Header */}
             <div className="absolute top-0 left-0 right-0 p-6 flex justify-between items-start z-10 bg-gradient-to-b from-[#1c1c1e] to-transparent">
               <button
-                onClick={() => setSelectedPost(null)}
+                onClick={() => navigate('/')}
                 className="p-2 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-white hover:bg-white hover:text-black transition-colors"
                 aria-label="Close modal"
               >
