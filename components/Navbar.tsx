@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { queueSectionNavigation, scrollToSection } from '../utils/sectionNavigation';
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,10 +18,33 @@ const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Projects', href: '#projects' },
-    { name: 'Research', href: '#research' },
-    { name: 'Blogs', href: '#blogs' },
+    { name: 'Projects', sectionId: 'projects' },
+    { name: 'Research', sectionId: 'research' },
+    { name: 'Blogs', sectionId: 'blogs' },
   ];
+
+  const handleSectionClick = (sectionId: string) => {
+    setIsOpen(false);
+
+    if (location.pathname !== '/') {
+      queueSectionNavigation(sectionId);
+      navigate('/');
+      return;
+    }
+
+    scrollToSection(sectionId);
+  };
+
+  const handleHomeClick = () => {
+    setIsOpen(false);
+
+    if (location.pathname !== '/') {
+      navigate('/');
+      return;
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <>
@@ -35,31 +62,34 @@ const Navbar: React.FC = () => {
             }
           `}
         >
-          <a
-            href="#"
+          <button
+            type="button"
+            onClick={handleHomeClick}
             className="text-xl font-semibold tracking-tight text-white hover:text-apple-blue transition-colors duration-300"
           >
             Madhav Kataria
-          </a>
+          </button>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-1">
             {navLinks.map((link) => (
-              <a
+              <button
                 key={link.name}
-                href={link.href}
+                type="button"
+                onClick={() => handleSectionClick(link.sectionId)}
                 className="px-4 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors rounded-full hover:bg-white/5"
               >
                 {link.name}
-              </a>
+              </button>
             ))}
             <div className="w-px h-4 bg-white/10 mx-2" />
-            <a
-              href="#contact"
+            <button
+              type="button"
+              onClick={() => handleSectionClick('contact')}
               className="px-5 py-2 bg-white text-black text-sm font-medium rounded-full hover:bg-gray-200 transition-all duration-300 transform hover:scale-[1.02]"
             >
               Contact
-            </a>
+            </button>
           </div>
 
           {/* Mobile Toggle */}
@@ -80,22 +110,22 @@ const Navbar: React.FC = () => {
       >
         <div className="flex flex-col items-center justify-center h-full space-y-8">
           {navLinks.map((link) => (
-            <a
+            <button
               key={link.name}
-              href={link.href}
+              type="button"
+              onClick={() => handleSectionClick(link.sectionId)}
               className="text-3xl font-medium text-gray-200 hover:text-apple-blue transition-colors"
-              onClick={() => setIsOpen(false)}
             >
               {link.name}
-            </a>
+            </button>
           ))}
-          <a
-            href="#contact"
+          <button
+            type="button"
+            onClick={() => handleSectionClick('contact')}
             className="px-8 py-4 bg-white text-black text-lg font-medium rounded-full mt-8"
-            onClick={() => setIsOpen(false)}
           >
             Contact Me
-          </a>
+          </button>
         </div>
       </div>
     </>

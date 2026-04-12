@@ -5,7 +5,7 @@ Disallow: /.git/
 Disallow: /.github/
 
 # Sitemap
-Sitemap: https://madhavkataria1010.github.io/sitemap.xml
+Sitemap: https://madhavkataria.com/sitemap.xml
 
 # Crawl-delay (optional, for polite crawling)
 Crawl-delay: 1

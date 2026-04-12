@@ -1,7 +1,22 @@
 import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { ArrowRight, ChevronDown } from 'lucide-react';
+import { queueSectionNavigation, scrollToSection } from '../utils/sectionNavigation';
 
 const Hero: React.FC = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const handleSectionClick = (sectionId: string) => {
+        if (location.pathname !== '/') {
+            queueSectionNavigation(sectionId);
+            navigate('/');
+            return;
+        }
+
+        scrollToSection(sectionId);
+    };
+
     return (
         <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
             {/* Background Ambience */}
@@ -23,14 +38,14 @@ const Hero: React.FC = () => {
 
                 {/* CTA Buttons - Glassmorphism & High Contrast */}
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-5 animate-slide-up opacity-0" style={{ animationDelay: '0.7s', animationFillMode: 'forwards' }}>
-                    <a href="#work" className="group relative px-8 py-4 bg-white text-black rounded-full font-medium text-lg overflow-hidden transition-all hover:scale-[1.02] hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.5)]">
+                    <button type="button" onClick={() => handleSectionClick('projects')} className="group relative px-8 py-4 bg-white text-black rounded-full font-medium text-lg overflow-hidden transition-all hover:scale-[1.02] hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.5)]">
                         <span className="relative z-10 flex items-center">
                             View Work <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </span>
-                    </a>
-                    <a href="#research" className="px-8 py-4 bg-[#1d1d1f]/80 backdrop-blur-md text-white border border-white/10 rounded-full font-medium text-lg hover:bg-white/10 transition-all hover:scale-[1.02]">
+                    </button>
+                    <button type="button" onClick={() => handleSectionClick('research')} className="px-8 py-4 bg-[#1d1d1f]/80 backdrop-blur-md text-white border border-white/10 rounded-full font-medium text-lg hover:bg-white/10 transition-all hover:scale-[1.02]">
                         Research
-                    </a>
+                    </button>
                 </div>
             </div>
 

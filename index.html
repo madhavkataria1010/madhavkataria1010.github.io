@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline'; img-src 'self' https://images.unsplash.com; font-src 'self'; connect-src 'self';">
+    content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https://images.unsplash.com data:; font-src 'self' data:; connect-src 'self';">
 
   <!-- Primary SEO Meta Tags -->
   <title>Madhav Kataria | AI Researcher & Vision Language Model Developer</title>
@@ -15,25 +15,25 @@
     content="AI Researcher, Vision Language Models, VLM, Generative AI, Machine Learning, Deep Learning, AI Developer, Madhav Kataria, ICCV, Computer Vision, NLP">
   <meta name="author" content="Madhav Kataria">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://madhavkataria1010.github.io/">
+  <link rel="canonical" href="https://madhavkataria.com/">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://madhavkataria1010.github.io/">
+  <meta property="og:url" content="https://madhavkataria.com/">
   <meta property="og:title" content="Madhav Kataria | AI Researcher & VLM Developer">
   <meta property="og:description"
     content="Explore cutting-edge AI projects, research papers on Vision-Language Models, and technical blogs by Madhav Kataria.">
-  <meta property="og:image" content="https://madhavkataria1010.github.io/og-image.png">
+  <meta property="og:image" content="https://madhavkataria.com/og-image.png">
   <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="Madhav Kataria Portfolio">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://madhavkataria1010.github.io/">
+  <meta name="twitter:url" content="https://madhavkataria.com/">
   <meta name="twitter:title" content="Madhav Kataria | AI Researcher & VLM Developer">
   <meta name="twitter:description"
     content="Explore cutting-edge AI projects, research papers on Vision-Language Models, and technical blogs.">
-  <meta name="twitter:image" content="https://madhavkataria1010.github.io/og-image.png">
+  <meta name="twitter:image" content="https://madhavkataria.com/og-image.png">
 
   <!-- Additional SEO -->
   <meta name="theme-color" content="#000000">
@@ -41,7 +41,6 @@
 
   <!-- Performance: Preconnect to external domains -->
   <link rel="preconnect" href="https://images.unsplash.com">
-  <link rel="preconnect" href="https://cdn.tailwindcss.com">
   <link rel="dns-prefetch" href="https://images.unsplash.com">
 
   <!-- Schema.org Structured Data: Person -->
@@ -50,8 +49,8 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Madhav Kataria",
-    "url": "https://madhavkataria1010.github.io",
-    "image": "https://madhavkataria1010.github.io/og-image.png",
+    "url": "https://madhavkataria.com",
+    "image": "https://madhavkataria.com/og-image.png",
     "jobTitle": "AI Researcher & Developer",
     "description": "AI Researcher specializing in Vision-Language Models, Generative AI, and Autonomous Agent Systems.",
     "knowsAbout": ["Vision-Language Models", "Generative AI", "Deep Learning", "Machine Learning", "Computer Vision", "Natural Language Processing", "PyTorch", "CUDA Optimization", "Autonomous Agents", "RAG Systems"],
@@ -68,7 +67,7 @@
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Madhav Kataria Portfolio",
-    "url": "https://madhavkataria1010.github.io",
+    "url": "https://madhavkataria.com",
     "description": "Portfolio website of Madhav Kataria, AI Researcher and Developer specializing in VLMs and Generative AI",
     "author": {
       "@type": "Person",
@@ -110,98 +109,6 @@
     ]
   }
   </script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['-apple-system', 'BlinkMacSystemFont', "SF Pro Display", "Segoe UI", 'Roboto', "Helvetica Neue", 'Arial', 'sans-serif'],
-          },
-          colors: {
-            'apple-gray': '#f5f5f7',
-            'apple-dark': '#1d1d1f',
-            'apple-card': '#1c1c1e',
-            'apple-blue': '#2997ff',
-          },
-          backdropBlur: {
-            xs: '2px',
-            xl: '20px',
-            '2xl': '40px',
-            '3xl': '60px',
-          },
-          animation: {
-            'fade-in': 'fadeIn 0.8s ease-out',
-            'slide-up': 'slideUp 1s cubic-bezier(0.16, 1, 0.3, 1)',
-            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            'aurora': 'aurora 10s infinite alternate',
-            'float': 'float 6s ease-in-out infinite',
-            'glow': 'glow 3s ease-in-out infinite alternate',
-            'bloom': 'bloom 10s ease-in-out infinite',
-          },
-          keyframes: {
-            fadeIn: {
-              '0%': { opacity: '0' },
-              '100%': { opacity: '1' },
-            },
-            slideUp: {
-              '0%': { transform: 'translateY(40px)', opacity: '0' },
-              '100%': { transform: 'translateY(0)', opacity: '1' },
-            },
-            aurora: {
-              '0%': { transform: 'translate(0, 0) scale(1)' },
-              '100%': { transform: 'translate(20px, -20px) scale(1.1)' },
-            },
-            float: {
-              '0%, 100%': { transform: 'translateY(0)' },
-              '50%': { transform: 'translateY(-10px)' },
-            },
-            glow: {
-              '0%': { boxShadow: '0 0 20px rgba(41, 151, 255, 0.2)' },
-              '100%': { boxShadow: '0 0 40px rgba(41, 151, 255, 0.6)' },
-            },
-            bloom: {
-              '0%, 100%': { opacity: '0', transform: 'scale(0.6) filter(blur(80px))' },
-              '50%': { opacity: '0.8', transform: 'scale(1.4) filter(blur(60px))' },
-            }
-          }
-        },
-      },
-    };
-  </script>
-  <style>
-    /* Global smooth scrolling */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    /* Hide scrollbar for Chrome, Safari and Opera */
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-
-    /* Hide scrollbar for IE, Edge and Firefox */
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      /* IE and Edge */
-      scrollbar-width: none;
-      /* Firefox */
-    }
-
-    body {
-      background-color: #000;
-      color: #f5f5f7;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Custom selection color */
-    ::selection {
-      background-color: rgba(41, 151, 255, 0.3);
-      color: white;
-    }
-  </style>
-  <!-- <link rel="stylesheet" href="/index.css"> -->
 </head>
 
 <body>
