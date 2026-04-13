@@ -11,7 +11,9 @@ export const PROJECTS: Project[] = [
     metrics: 'Sub-second latency • 500+ concurrent users',
     featured: true,
     githubUrl: 'https://github.com/madhavkataria/jarvis-voice-assistant',
-    link: '#'
+    detailLinks: [
+      { label: 'code', href: 'https://github.com/madhavkataria/jarvis-voice-assistant' },
+    ]
   },
   {
     id: '2',
@@ -23,7 +25,9 @@ export const PROJECTS: Project[] = [
     metrics: '35% faster queries • 22% higher retrieval accuracy',
     featured: true,
     githubUrl: 'https://github.com/madhavkataria/intelli-browser',
-    link: '#'
+    detailLinks: [
+      { label: 'code', href: 'https://github.com/madhavkataria/intelli-browser' },
+    ]
   },
   {
     id: '3',
@@ -35,7 +39,9 @@ export const PROJECTS: Project[] = [
     metrics: '500k+ events/min • 95.27% relevance',
     featured: false,
     githubUrl: 'https://github.com/madhavkataria/dynamic-rag',
-    link: '#'
+    detailLinks: [
+      { label: 'code', href: 'https://github.com/madhavkataria/dynamic-rag' },
+    ]
   },
   {
     id: '4',
@@ -47,7 +53,9 @@ export const PROJECTS: Project[] = [
     metrics: '+12% engagement • Optimized Minimax',
     featured: false,
     githubUrl: 'https://github.com/madhavkataria/realm-weaver',
-    link: '#'
+    detailLinks: [
+      { label: 'code', href: 'https://github.com/madhavkataria/realm-weaver' },
+    ]
   },
   {
     id: '5',
@@ -58,7 +66,10 @@ export const PROJECTS: Project[] = [
     techStack: ['VLMs', 'GANs', 'LoRA', 'PyTorch'],
     metrics: '85% accuracy • 500k+ image dataset',
     featured: false,
-    githubUrl: 'https://github.com/madhavkataria/adobe-challenge'
+    githubUrl: 'https://github.com/madhavkataria/adobe-challenge',
+    detailLinks: [
+      { label: 'code', href: 'https://github.com/madhavkataria/adobe-challenge' },
+    ]
   },
   {
     id: '6',
@@ -68,8 +79,7 @@ export const PROJECTS: Project[] = [
     imageUrl: 'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?q=80&w=1000&auto=format&fit=crop',
     techStack: ['PyTorch', 'TensorFlow', 'Unity', 'RL'],
     metrics: '85% success rate • 40% accuracy boost',
-    featured: false,
-    githubUrl: '#'
+    featured: false
   },
   {
     id: '7',
@@ -79,8 +89,7 @@ export const PROJECTS: Project[] = [
     imageUrl: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=1000&auto=format&fit=crop',
     techStack: ['GPT-4', 'Prompt Engineering', 'CoT'],
     metrics: 'Streamlined workflows • Cost savings',
-    featured: false,
-    githubUrl: '#'
+    featured: false
   },
   {
     id: '8',
@@ -91,7 +100,10 @@ export const PROJECTS: Project[] = [
     techStack: ['C', 'SIMD', 'OpenMP', 'CNN'],
     metrics: '>99.2% accuracy • Sub-ms latency',
     featured: false,
-    githubUrl: 'https://github.com/madhavkataria1010/ics_majorproject'
+    githubUrl: 'https://github.com/madhavkataria1010/ics_majorproject',
+    detailLinks: [
+      { label: 'code', href: 'https://github.com/madhavkataria1010/ics_majorproject' },
+    ]
   },
 ];
 
@@ -102,7 +114,8 @@ export const PAPERS: ResearchPaper[] = [
     conference: 'ICCV',
     year: '2025',
     abstract: 'Oral Presentation (Top 5%) · Best Paper. A novel framework for retrieval-based video generation and vision-language alignment, focusing on complex narrative structures.',
-    link: 'https://arxiv.org/abs/2508.08508'
+    link: 'https://arxiv.org/abs/2508.08508',
+    authors: ['Madhav Kataria', 'Collaborators TBD'],
   }
 ];
 

@@ -1,11 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https://images.unsplash.com data:; font-src 'self' data:; connect-src 'self';">
+    content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://images.unsplash.com https://avatars.githubusercontent.com https://github.com data:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self';">
+  <script>
+    (function () {
+      var redirect = sessionStorage.getItem('spa-redirect');
+      if (redirect) {
+        sessionStorage.removeItem('spa-redirect');
+        history.replaceState(null, '', redirect);
+      }
+    })();
+  </script>
+  <script>
+    (function () {
+      var storedTheme = localStorage.getItem('portfolio-theme');
+      var theme = storedTheme === 'light' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
 
   <!-- Primary SEO Meta Tags -->
   <title>Madhav Kataria | AI Researcher & Vision Language Model Developer</title>
@@ -36,7 +52,7 @@
   <meta name="twitter:image" content="https://madhavkataria.com/og-image.png">
 
   <!-- Additional SEO -->
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#0d0d0d">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
   <!-- Performance: Preconnect to external domains -->
@@ -122,26 +138,28 @@
     </header>
     <main>
       <nav>
-        <a href="#projects">AI & Machine Learning Projects</a> |
-        <a href="#research">AI Research & Publications</a> |
-        <a href="#blogs">AI & Machine Learning Blog</a> |
-        <a href="#contact">Contact</a>
+        <a href="/">About</a> |
+        <a href="/projects">AI & Machine Learning Projects</a> |
+        <a href="/research">AI Research & Publications</a> |
+        <a href="/blog">AI & Machine Learning Blog</a> |
+        <a href="/madhav-kataria-cv.pdf">CV</a> |
+        <a href="/contact">Contact</a>
       </nav>
-      <section id="projects">
+      <section>
         <h2>AI & Machine Learning Projects</h2>
         <p>Explore cutting-edge AI projects including Jarvis Voice Assistant, IntelliBrowser autonomous agent, Dynamic
           Agentic RAG systems, and more.</p>
       </section>
-      <section id="research">
+      <section>
         <h2>AI Research & Academic Publications</h2>
         <p>Research on Vision Language Models including "Re:Verse — Can Your VLM Read a Manga?" - ICCV 2025 Oral
           Presentation.</p>
       </section>
-      <section id="blogs">
+      <section>
         <h2>AI & Machine Learning Blog</h2>
         <p>Insights on AI architecture, VLM optimization, agentic workflows, and the future of intelligent software.</p>
       </section>
-      <section id="contact">
+      <section>
         <h2>Contact Madhav Kataria</h2>
         <p>Get in touch for AI research collaborations and Vision Language Model projects.</p>
         <a href="mailto:madhavkataria69@gmail.com">Contact Me</a>

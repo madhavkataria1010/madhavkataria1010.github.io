@@ -9,6 +9,10 @@ export interface Project {
   techStack: string[];
   metrics?: string;
   featured?: boolean;
+  detailLinks?: Array<{
+    label: string;
+    href: string;
+  }>;
 }
 
 export interface ResearchPaper {
@@ -18,6 +22,8 @@ export interface ResearchPaper {
   year: string;
   abstract: string;
   link?: string;
+  authors?: string[];
+  codeUrl?: string;
 }
 
 export interface BlogPost {
