@@ -22,7 +22,7 @@ const NAV_ITEMS = [
   { to: '/', label: 'about', end: true },
   { to: '/projects', label: 'projects' },
   { to: '/research', label: 'research' },
-  { to: '/blog', label: 'blog' },
+  { to: '/blogs', label: 'blog' },
   { href: CV_URL, label: 'cv' },
   { to: '/contact', label: 'contact' },
 ] as const;
@@ -669,7 +669,7 @@ const BlogPage = () => (
   <>
     <BootHeader
       lines={[
-        { kind: 'ok', text: <>Mounted <span className="path">{SITE_HOST}/blog</span></> },
+        { kind: 'ok', text: <>Mounted <span className="path">{SITE_HOST}/blogs</span></> },
         { kind: 'ok', text: <>Published posts index - {BLOG_POSTS.length} entries queued</> },
         { kind: 'info', text: <>Reading: <span className="path">posts/{getBlogFileName(BLOG_POSTS[0]?.slug ?? 'latest')}</span></> },
       ]}
@@ -678,7 +678,7 @@ const BlogPage = () => (
     <SectionCommand command="ls" flag="-lt" arg="./posts/" />
     <RowList>
       {BLOG_POSTS.map((post, index) => (
-        <Link key={post.id} to={`/blog/${post.slug}`} className="row-link">
+        <Link key={post.id} to={`/blogs/${post.slug}`} className="row-link">
           <div className="row-item">
             <span className="row-index">{formatIndex(index)}</span>
             <span className="row-title">{post.title}</span>
@@ -701,14 +701,14 @@ const BlogPostPage = () => {
   );
 
   if (!post) {
-    return <Navigate to="/blog" replace />;
+    return <Navigate to="/blogs" replace />;
   }
 
   return (
     <>
       <BootHeader
         lines={[
-        { kind: 'ok', text: <>Mounted <span className="path">{SITE_HOST}/blog</span></> },
+        { kind: 'ok', text: <>Mounted <span className="path">{SITE_HOST}/blogs</span></> },
         { kind: 'ok', text: 'Opened post buffer' },
         { kind: 'info', text: <>Reading: <span className="path">posts/{getBlogFileName(post.slug)}</span></> },
       ]}
@@ -717,7 +717,7 @@ const BlogPostPage = () => {
       <SectionCommand command="ls" flag="-lt" arg="./posts/" />
       <RowList>
         {BLOG_POSTS.map((entry, index) => (
-          <Link key={entry.id} to={`/blog/${entry.slug}`} className="row-link">
+          <Link key={entry.id} to={`/blogs/${entry.slug}`} className="row-link">
             <div className={`row-item ${selectedIndex === index ? 'selected' : ''}`}>
               <span className="row-index">{formatIndex(index)}</span>
               <span className="row-title">{entry.title}</span>
@@ -748,7 +748,7 @@ const BlogPostPage = () => {
           </div>
           <div className="editor-content">
             <div className="editor-header">
-              <Link to="/blog" className="terminal-link">
+              <Link to="/blogs" className="terminal-link">
                 ← back to posts
               </Link>
               <h1>{post.title}</h1>
@@ -756,7 +756,7 @@ const BlogPostPage = () => {
                 <span>author Madhav Kataria</span>
                 <span>date {post.date}</span>
                 <span>read {post.readTime}</span>
-                <Link to="/blog" className="editor-origin-link link-tone-origin">
+                <Link to="/blogs" className="editor-origin-link link-tone-origin">
                   origin blog →
                 </Link>
               </div>
@@ -854,8 +854,8 @@ const Layout = () => {
       output = 'open /research';
       navigate('/research');
     } else if (value === 'blog' || value === 'writing') {
-      output = 'open /blog';
-      navigate('/blog');
+      output = 'open /blogs';
+      navigate('/blogs');
     } else if (value === 'contact') {
       output = 'open /contact';
       navigate('/contact');
@@ -928,7 +928,9 @@ const Layout = () => {
           />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/research" element={<ResearchPage />} />
-          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blogs" element={<BlogPage />} />
+          <Route path="/blogs/:slug" element={<BlogPostPage />} />
+          <Route path="/blog" element={<Navigate to="/blogs" replace />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />

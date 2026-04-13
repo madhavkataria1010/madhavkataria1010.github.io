@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { BlogPost } from '../types';
-import { X, Calendar, Clock, ArrowRight, Tag } from 'lucide-react';
+import { Calendar, Clock, ArrowRight } from 'lucide-react';
 
 interface BlogSectionProps {
   posts: BlogPost[];
@@ -107,6 +107,62 @@ const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => {
   const navigate = useNavigate();
   const selectedPost = slug ? posts.find(p => p.slug === slug) || null : null;
 
+  if (slug && !selectedPost) {
+    return (
+      <section id="blogs" className="py-24 bg-black relative">
+        <div className="max-w-4xl mx-auto px-6">
+          <p className="text-gray-300 text-lg mb-6">Post not found.</p>
+          <button
+            type="button"
+            onClick={() => navigate('/blogs')}
+            className="inline-flex items-center gap-2 text-apple-blue hover:text-white transition-colors"
+          >
+            ← Back to blogs
+          </button>
+        </div>
+      </section>
+    );
+  }
+
+  if (selectedPost) {
+    return (
+      <section id="blogs" className="py-24 bg-black relative">
+        <div className="max-w-5xl mx-auto px-6">
+          <button
+            type="button"
+            onClick={() => navigate('/blogs')}
+            className="inline-flex items-center gap-2 text-apple-blue hover:text-white transition-colors mb-8"
+          >
+            ← Back to blogs
+          </button>
+
+          <div className="bg-[#1c1c1e] border border-white/10 rounded-[2rem] p-6 md:p-12">
+            <div className="mb-12 border-b border-white/10 pb-12">
+              <div className="flex flex-wrap gap-4 text-sm text-gray-400 mb-6">
+                <span className="flex items-center gap-2"><Calendar size={16} /> {selectedPost.date}</span>
+                <span className="flex items-center gap-2"><Clock size={16} /> {selectedPost.readTime}</span>
+              </div>
+              <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-6 leading-tight">
+                {selectedPost.title}
+              </h1>
+              <div className="flex flex-wrap gap-2">
+                {selectedPost.tags.map(tag => (
+                  <span key={tag} className="text-sm px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="markdown-content">
+              <SimpleMarkdown content={selectedPost.content} />
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="blogs" className="py-32 bg-black relative">
       <div className="max-w-6xl mx-auto px-6">
@@ -154,57 +210,6 @@ const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => {
           ))}
         </div>
       </div>
-
-      {/* Full Screen Reader Modal */}
-      {selectedPost && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 md:p-6">
-          {/* Backdrop */}
-          <div
-            className="absolute inset-0 bg-black/60 backdrop-blur-xl transition-opacity"
-            onClick={() => navigate('/')}
-          />
-
-          {/* Content Card */}
-          <div className="relative w-full max-w-6xl h-full max-h-[90vh] bg-[#1c1c1e] border border-white/10 rounded-[2rem] shadow-2xl overflow-hidden flex flex-col animate-slide-up">
-            {/* Header */}
-            <div className="absolute top-0 left-0 right-0 p-6 flex justify-between items-start z-10 bg-gradient-to-b from-[#1c1c1e] to-transparent">
-              <button
-                onClick={() => navigate('/')}
-                className="p-2 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-white hover:bg-white hover:text-black transition-colors"
-                aria-label="Close modal"
-              >
-                <X size={24} />
-              </button>
-            </div>
-
-            {/* Scrollable Content */}
-            <div className="overflow-y-auto h-full custom-scrollbar">
-              <div className="pt-24 pb-16 px-8 md:px-16 max-w-5xl mx-auto">
-                <div className="mb-12 border-b border-white/10 pb-12">
-                  <div className="flex gap-4 text-sm text-gray-400 mb-6">
-                    <span className="flex items-center gap-2"><Calendar size={16} /> {selectedPost.date}</span>
-                    <span className="flex items-center gap-2"><Clock size={16} /> {selectedPost.readTime}</span>
-                  </div>
-                  <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-6 leading-tight">
-                    {selectedPost.title}
-                  </h1>
-                  <div className="flex gap-2">
-                    {selectedPost.tags.map(tag => (
-                      <span key={tag} className="text-sm px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="markdown-content">
-                  <SimpleMarkdown content={selectedPost.content} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 };
