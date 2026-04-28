@@ -70,7 +70,7 @@ const getBlogFileName = (slug: string) => `${slug.replace(/-/g, '_')}.txt`;
 const getLinkToneClass = (label: string) => {
   const normalized = label.trim().toLowerCase();
 
-  if (normalized === 'code') {
+  if (normalized === 'code' || normalized.includes('github')) {
     return 'link-tone-code';
   }
 
@@ -400,9 +400,9 @@ const AboutPage = ({
   const previewResearchRows = [
     {
       id: 'preview-paper',
-      leftLabel: `${PAPERS[0]?.conference ?? 'ICCV'} ${PAPERS[0]?.year ?? '2025'}`,
+      leftLabel: 'ICCV AIstory Workshop',
       title: PAPERS[0]?.title ?? 'Featured paper',
-      badge: 'PAPER',
+      badge: 'BEST PAPER',
       to: '/research',
     },
     {
@@ -440,27 +440,27 @@ const AboutPage = ({
         </div>
         <div className="who-text-col">
           <div className="who-field"><span className="who-key">name</span><span className="who-sep">:</span> <span className="who-val bright">Madhav Kataria</span></div>
-          <div className="who-field"><span className="who-key">role</span><span className="who-sep">:</span> <span className="who-val">AI researcher & developer</span></div>
-          <div className="who-field"><span className="who-key">org</span><span className="who-sep">:</span> <span className="who-val accent">independent research + product engineering</span></div>
-          <div className="who-field"><span className="who-key">focus</span><span className="who-sep">:</span> <span className="who-val">vision-language models, generative AI, Large language models</span></div>
-          <div className="who-field"><span className="who-key">&nbsp;</span><span className="who-sep"> </span> <span className="who-val">agentic systems, evaluation, fast inference</span></div>
-          <div className="who-field"><span className="who-key">builds</span><span className="who-sep">:</span> <span className="who-val">voice agents, browser agents, RAG pipelines, CV systems</span></div>
+          <div className="who-field"><span className="who-key">role</span><span className="who-sep">:</span> <span className="who-val">Research Intern, CRCV Lab, University of Central Florida</span></div>
+          <div className="who-field"><span className="who-key">education</span><span className="who-sep">:</span> <span className="who-val">B.Tech Chemical Engineering + AI Minor, IIT Jodhpur</span></div>
+          <div className="who-field"><span className="who-key">focus</span><span className="who-sep">:</span> <span className="who-val">multimodal evaluation, benchmark design, multimodal reasoning</span></div>
+          <div className="who-field"><span className="who-key">builds</span><span className="who-sep">:</span> <span className="who-val">agentic systems, retrieval pipelines, safety-aligned model evaluations</span></div>
         </div>
       </div>
 
       <SectionCommand command="cat" arg="about.txt" />
       <TextBlock>
         <p>
-          My name is Madhav, and I build AI systems across research and product contexts, with a focus on
-          vision-language models, agentic workflows, multimodal reasoning, and practical generative AI systems.
+          My name is Madhav, and I work on multimodal evaluation, benchmark design, and multimodal reasoning. I am
+          currently a Research Intern at the CRCV Lab, University of Central Florida.
         </p>
         <p>
-          I enjoy moving ideas beyond the prototype phase: reducing latency, making orchestration cleaner,
-          strengthening retrieval, and turning demo-heavy concepts into systems that feel disciplined enough to ship.
+          I am pursuing a B.Tech in Chemical Engineering with an AI Minor at IIT Jodhpur. Recent research spans
+          narrative understanding in manga, multimodal model evaluation, and applied AI systems.
         </p>
         <p>
-          Recent work spans real-time voice assistants, autonomous browser systems, dynamic retrieval pipelines,
-          adversarially robust vision projects, and low-level performance-oriented neural network engineering.
+          I also won Gold at Inter IIT Tech Meet 2025, placing 1st among 23 IITs on the Arista Networks problem.
+          On the engineering side, I build voice agents, browser agents, and dynamic RAG systems that keep research
+          ideas close to working software.
         </p>
       </TextBlock>
 
@@ -478,17 +478,17 @@ const AboutPage = ({
         <div className="log-entry">
           <span className="log-ts">2026-04</span>
           <span className="log-lvl new">NEW</span>
-          <span className="log-msg">Rebuilt the portfolio around a routed terminal-style interface.</span>
-        </div>
-        <div className="log-entry">
-          <span className="log-ts">2025-10</span>
-          <span className="log-lvl note">NOTE</span>
-          <span className="log-msg">Continued writing on agentic systems, crypto infrastructure, and system design.</span>
+          <span className="log-msg">Research Intern at CRCV Lab, University of Central Florida.</span>
         </div>
         <div className="log-entry">
           <span className="log-ts">2025-08</span>
           <span className="log-lvl paper">PAPER</span>
-          <span className="log-msg">Published Re:Verse — Can Your VLM Read a Manga? at ICCV 2025.</span>
+          <span className="log-msg">Re:Verse won Best Paper Award and Oral Presentation (Top 5%) at ICCV AIstory 2025 Workshop.</span>
+        </div>
+        <div className="log-entry">
+          <span className="log-ts">2025-01</span>
+          <span className="log-lvl note">NOTE</span>
+          <span className="log-msg">Inter IIT Tech Meet Gold Medal - 1st among 23 IITs on the Arista Networks problem.</span>
         </div>
       </div>
 
@@ -556,7 +556,7 @@ const ProjectsPage = () => {
                   (project.githubUrl
                     ? [
                         {
-                          label: 'code',
+                          label: 'work Github',
                           href: project.githubUrl,
                         },
                       ]
@@ -582,24 +582,25 @@ const ResearchPage = () => {
         lines={[
           { kind: 'ok', text: <>Loaded <span className="path">{SITE_HOST}/research</span></> },
           { kind: 'ok', text: <>Mounted publications index - {PAPERS.length} entries found</> },
-          { kind: 'info', text: 'Click any entry to inspect abstract and links' },
+          { kind: 'info', text: 'Multimodal evaluation research and publications' },
         ]}
       />
 
       <SectionCommand command="cat" arg="research_statement.txt" />
       <TextBlock>
         <p>
-          My research focuses on vision and language systems with an emphasis on multimodal reasoning,
-          evaluation, retrieval-augmented behavior, and practical methods for building stronger AI systems.
+          My research focuses on multimodal evaluation, benchmark design, and multimodal reasoning, especially where
+          models need to reason across long visual sequences, stylized domains, retrieval context, and adversarial
+          prompts.
         </p>
         <p>
-          Across projects, a recurring theme is the behavior of models in realistic settings: not only how
-          they perform on benchmarks, but how they fail, recover, retrieve, and coordinate when used as part
-          of larger product or agent pipelines.
+          At CRCV Lab, University of Central Florida, I work on research that asks how multimodal models fail,
+          recover, retrieve, and maintain identity or causality when the input is more complicated than a single
+          clean image.
         </p>
         <p>
-          I am especially interested in research that can cross the boundary into implementation: models and
-          methods that are not just publishable, but operationally useful.
+          I am especially interested in work that crosses the boundary into implementation: benchmarks and methods
+          that are publishable, but also useful enough to shape real systems.
         </p>
       </TextBlock>
 
@@ -623,7 +624,7 @@ const ResearchPage = () => {
                       {paper.authors.map((author, authorIndex) => (
                         <React.Fragment key={author}>
                           {authorIndex > 0 ? <span className="row-expansion-author-sep">, </span> : null}
-                          <span className={authorIndex === 0 ? 'row-expansion-highlight' : undefined}>{author}</span>
+                          <span className={author === 'Madhav Kataria' ? 'row-expansion-highlight' : undefined}>{author}</span>
                         </React.Fragment>
                       ))}
                     </>
@@ -640,7 +641,7 @@ const ResearchPage = () => {
                   ...(paper.codeUrl
                     ? [
                         {
-                          label: 'code',
+                          label: 'work Github',
                           href: paper.codeUrl,
                         },
                       ]
@@ -695,11 +696,6 @@ const BlogPage = () => (
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const post = useMemo(() => BLOG_POSTS.find((entry) => entry.slug === slug), [slug]);
-  const selectedIndex = useMemo(
-    () => BLOG_POSTS.findIndex((entry) => entry.slug === slug),
-    [slug],
-  );
-
   if (!post) {
     return <Navigate to="/blogs" replace />;
   }
@@ -713,21 +709,6 @@ const BlogPostPage = () => {
         { kind: 'info', text: <>Reading: <span className="path">posts/{getBlogFileName(post.slug)}</span></> },
       ]}
     />
-
-      <SectionCommand command="ls" flag="-lt" arg="./posts/" />
-      <RowList>
-        {BLOG_POSTS.map((entry, index) => (
-          <Link key={entry.id} to={`/blogs/${entry.slug}`} className="row-link">
-            <div className={`row-item ${selectedIndex === index ? 'selected' : ''}`}>
-              <span className="row-index">{formatIndex(index)}</span>
-              <span className="row-title">{entry.title}</span>
-              <span className="row-right">
-                <span className="row-meta">{entry.date}</span>
-              </span>
-            </div>
-          </Link>
-        ))}
-      </RowList>
 
       <SectionCommand command="less" arg={`posts/${getBlogFileName(post.slug)}`} />
       <div className="editor-window">
@@ -782,15 +763,15 @@ const ContactPage = () => (
       lines={[
         { kind: 'ok', text: <>Loaded <span className="path">{SITE_HOST}/contact</span></> },
         { kind: 'ok', text: 'Reachability checks passed' },
-        { kind: 'info', text: 'Open to research collaboration, engineering work, and consulting' },
+        { kind: 'info', text: 'Open to research collaboration, applied AI engineering, and multimodal evaluation work' },
       ]}
     />
 
     <SectionCommand command="cat" arg="contact.txt" />
     <TextBlock>
       <p>
-        If you want to collaborate on research, build ambitious AI systems, or talk through product and
-        infrastructure work around multimodal models, feel free to reach out.
+        If you want to collaborate on multimodal evaluation, benchmark design, multimodal reasoning, safety alignment,
+        or ambitious applied AI systems, feel free to reach out.
       </p>
       <p>
         Email is the cleanest path, but LinkedIn and GitHub are here as well if that fits better.

@@ -5,42 +5,42 @@ export const PROJECTS: Project[] = [
     id: '1',
     title: 'Jarvis Voice Assistant',
     category: 'Generative Audio',
-    description: 'An advanced real-time AI voice assistant built with VLLM inference, delivering sub-second latency for high-quality conversational AI experiences. Integrates OrcaStation and MCP server for RAG-powered contextual intelligence.',
+    description: 'Real-time multimodal voice assistant focused on low-latency interaction, local/served model inference, and retrieval-backed context. Built to make VLM and speech-model orchestration feel responsive enough for practical agent workflows.',
     imageUrl: 'https://images.unsplash.com/photo-1589254065878-42c9da997008?q=80&w=1000&auto=format&fit=crop',
     techStack: ['AudioFlamingo3', 'VLLM', 'Docker', 'Kubernetes', 'RAG'],
-    metrics: 'Sub-second latency • 500+ concurrent users',
+    metrics: 'Sub-second latency target • RAG-backed context',
     featured: true,
     githubUrl: 'https://github.com/madhavkataria1010/jarvis-voice-assistant',
     detailLinks: [
-      { label: 'code', href: 'https://github.com/madhavkataria1010/jarvis-voice-assistant' },
+      { label: 'work Github', href: 'https://github.com/madhavkataria1010/jarvis-voice-assistant' },
     ]
   },
   {
     id: '2',
     title: 'IntelliBrowser',
     category: 'Autonomous Agents',
-    description: 'High-performance autonomous web agent leveraging Playwright and CrewAI MCP for intelligent browser automation. Orchestrates multiple AI agents for automated web navigation, data extraction, and retrieval with 35% faster query performance.',
+    description: 'Autonomous browser agent for web navigation, extraction, and retrieval-heavy workflows. Combines Playwright control with agent coordination so tasks can be decomposed, verified, and retried instead of running as brittle one-shot scripts.',
     imageUrl: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop',
     techStack: ['Python', 'Playwright', 'CrewAI', 'SQLite'],
     metrics: '35% faster queries • 22% higher retrieval accuracy',
     featured: true,
     githubUrl: 'https://github.com/madhavkataria1010/intelli-browser',
     detailLinks: [
-      { label: 'code', href: 'https://github.com/madhavkataria1010/intelli-browser' },
+      { label: 'work Github', href: 'https://github.com/madhavkataria1010/intelli-browser' },
     ]
   },
   {
     id: '3',
     title: 'Dynamic Agentic RAG',
     category: 'Retrieval Systems',
-    description: 'Enterprise-grade real-time RAG pipeline using Pathway for continuous data stream synthesis. Achieves 95.27% relevance scores while processing 500k+ events/min for AI-powered critical decision-making systems.',
+    description: 'Streaming RAG pipeline for continuously changing corpora, designed around dynamic indexing, retrieval quality checks, and agentic query planning. The goal is to keep answers grounded even when source data is moving underneath the system.',
     imageUrl: 'https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?q=80&w=1000&auto=format&fit=crop',
     techStack: ['Pathway', 'FastAPI', 'JinaAI', 'Gradio'],
     metrics: '500k+ events/min • 95.27% relevance',
     featured: false,
     githubUrl: 'https://github.com/madhavkataria1010/dynamic-rag',
     detailLinks: [
-      { label: 'code', href: 'https://github.com/madhavkataria1010/dynamic-rag' },
+      { label: 'work Github', href: 'https://github.com/madhavkataria1010/dynamic-rag' },
     ]
   },
   {
@@ -54,21 +54,21 @@ export const PROJECTS: Project[] = [
     featured: false,
     githubUrl: 'https://github.com/madhavkataria1010/realm-weaver',
     detailLinks: [
-      { label: 'code', href: 'https://github.com/madhavkataria1010/realm-weaver' },
+      { label: 'work Github', href: 'https://github.com/madhavkataria1010/realm-weaver' },
     ]
   },
   {
     id: '5',
     title: 'Adobe Challenge',
     category: 'Computer Vision',
-    description: 'Multi-head CNN & VLM LoRA adapters formulated to detect AI-created content. Utilizes adversarial training (FGSM, PGD) to boost model robustness.',
+    description: 'Computer-vision robustness project for detecting AI-created content using multi-head CNNs, VLM adapters, and adversarial training. Explored how synthetic-image detectors behave under perturbation rather than only clean benchmark splits.',
     imageUrl: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000&auto=format&fit=crop',
     techStack: ['VLMs', 'GANs', 'LoRA', 'PyTorch'],
     metrics: '85% accuracy • 500k+ image dataset',
     featured: false,
     githubUrl: 'https://github.com/madhavkataria1010/adobe-challenge',
     detailLinks: [
-      { label: 'code', href: 'https://github.com/madhavkataria1010/adobe-challenge' },
+      { label: 'work Github', href: 'https://github.com/madhavkataria1010/adobe-challenge' },
     ]
   },
   {
@@ -102,7 +102,7 @@ export const PROJECTS: Project[] = [
     featured: false,
     githubUrl: 'https://github.com/madhavkataria1010/ics_majorproject',
     detailLinks: [
-      { label: 'code', href: 'https://github.com/madhavkataria1010/ics_majorproject' },
+      { label: 'work Github', href: 'https://github.com/madhavkataria1010/ics_majorproject' },
     ]
   },
 ];
@@ -111,12 +111,12 @@ export const PAPERS: ResearchPaper[] = [
   {
     id: 'p1',
     title: 'Re:Verse — Can Your VLM Read a Manga?',
-    conference: 'ICCV',
+    conference: 'ICCV AIstory Workshop Best Paper',
     year: '2025',
-    abstract: 'Oral Presentation (Top 5%) · Best Paper. A comprehensive benchmark and framework evaluating whether Vision-Language Models can truly understand manga — tackling sequential visual storytelling, panel-order reasoning, and multimodal narrative comprehension.',
+    abstract: 'Best Paper Award, Oral Presentation, Top 5%, ICCV AIstory 2025 Workshop. Re:Verse evaluates whether vision-language models can understand long-form manga narratives across panel-level grounding, temporal causality, character consistency, and cross-panel story cohesion.',
     link: 'https://arxiv.org/abs/2508.08508',
     authors: ['Madhav Kataria'],
-  }
+  },
 ];
 
 export const BLOG_POSTS: BlogPost[] = [
