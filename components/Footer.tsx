@@ -14,10 +14,10 @@ const Footer: React.FC = () => {
             <div className="max-w-5xl mx-auto px-6 relative z-10">
                 <div className="text-center mb-20">
                     <h2 className="text-6xl md:text-8xl font-semibold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40 mb-8">
-                        Let's build AI together.
+                        Let's build something great.
                     </h2>
                     <p className="text-xl text-gray-400 mb-12 font-light max-w-2xl mx-auto">
-                        I'm always looking for challenging problems in Vision-Language Models, Autonomous Agents, and High-Performance AI Computing.
+                        Open to research collaborations, ambitious AI projects, and roles pushing the frontier of Vision-Language Models, Autonomous Agents, and High-Performance Computing.
                     </p>
                     <a href="mailto:madhavkataria69@gmail.com" className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-black font-medium text-lg hover:scale-105 transition-transform shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)]" aria-label="Contact Madhav Kataria via email">
                         <Mail size={18} />

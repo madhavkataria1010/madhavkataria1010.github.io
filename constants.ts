@@ -10,9 +10,9 @@ export const PROJECTS: Project[] = [
     techStack: ['AudioFlamingo3', 'VLLM', 'Docker', 'Kubernetes', 'RAG'],
     metrics: 'Sub-second latency • 500+ concurrent users',
     featured: true,
-    githubUrl: 'https://github.com/madhavkataria/jarvis-voice-assistant',
+    githubUrl: 'https://github.com/madhavkataria1010/jarvis-voice-assistant',
     detailLinks: [
-      { label: 'code', href: 'https://github.com/madhavkataria/jarvis-voice-assistant' },
+      { label: 'code', href: 'https://github.com/madhavkataria1010/jarvis-voice-assistant' },
     ]
   },
   {
@@ -24,9 +24,9 @@ export const PROJECTS: Project[] = [
     techStack: ['Python', 'Playwright', 'CrewAI', 'SQLite'],
     metrics: '35% faster queries • 22% higher retrieval accuracy',
     featured: true,
-    githubUrl: 'https://github.com/madhavkataria/intelli-browser',
+    githubUrl: 'https://github.com/madhavkataria1010/intelli-browser',
     detailLinks: [
-      { label: 'code', href: 'https://github.com/madhavkataria/intelli-browser' },
+      { label: 'code', href: 'https://github.com/madhavkataria1010/intelli-browser' },
     ]
   },
   {
@@ -38,9 +38,9 @@ export const PROJECTS: Project[] = [
     techStack: ['Pathway', 'FastAPI', 'JinaAI', 'Gradio'],
     metrics: '500k+ events/min • 95.27% relevance',
     featured: false,
-    githubUrl: 'https://github.com/madhavkataria/dynamic-rag',
+    githubUrl: 'https://github.com/madhavkataria1010/dynamic-rag',
     detailLinks: [
-      { label: 'code', href: 'https://github.com/madhavkataria/dynamic-rag' },
+      { label: 'code', href: 'https://github.com/madhavkataria1010/dynamic-rag' },
     ]
   },
   {
@@ -52,9 +52,9 @@ export const PROJECTS: Project[] = [
     techStack: ['C++', 'Gemini API', 'Graph Algos', 'CMake'],
     metrics: '+12% engagement • Optimized Minimax',
     featured: false,
-    githubUrl: 'https://github.com/madhavkataria/realm-weaver',
+    githubUrl: 'https://github.com/madhavkataria1010/realm-weaver',
     detailLinks: [
-      { label: 'code', href: 'https://github.com/madhavkataria/realm-weaver' },
+      { label: 'code', href: 'https://github.com/madhavkataria1010/realm-weaver' },
     ]
   },
   {
@@ -66,9 +66,9 @@ export const PROJECTS: Project[] = [
     techStack: ['VLMs', 'GANs', 'LoRA', 'PyTorch'],
     metrics: '85% accuracy • 500k+ image dataset',
     featured: false,
-    githubUrl: 'https://github.com/madhavkataria/adobe-challenge',
+    githubUrl: 'https://github.com/madhavkataria1010/adobe-challenge',
     detailLinks: [
-      { label: 'code', href: 'https://github.com/madhavkataria/adobe-challenge' },
+      { label: 'code', href: 'https://github.com/madhavkataria1010/adobe-challenge' },
     ]
   },
   {
@@ -113,9 +113,9 @@ export const PAPERS: ResearchPaper[] = [
     title: 'Re:Verse — Can Your VLM Read a Manga?',
     conference: 'ICCV',
     year: '2025',
-    abstract: 'Oral Presentation (Top 5%) · Best Paper. A novel framework for retrieval-based video generation and vision-language alignment, focusing on complex narrative structures.',
+    abstract: 'Oral Presentation (Top 5%) · Best Paper. A comprehensive benchmark and framework evaluating whether Vision-Language Models can truly understand manga — tackling sequential visual storytelling, panel-order reasoning, and multimodal narrative comprehension.',
     link: 'https://arxiv.org/abs/2508.08508',
-    authors: ['Madhav Kataria', 'Collaborators TBD'],
+    authors: ['Madhav Kataria'],
   }
 ];
 
@@ -361,25 +361,33 @@ The App Router isn't just a directory change; it's a mental model shift. It alig
   },
   {
     id: 'b4',
-    slug: 'my-first-blog-post',
-    title: 'My First Blog Post',
+    slug: 'why-i-research-vision-language-models',
+    title: 'Why I Research Vision-Language Models',
     date: 'July 28, 2024',
-    readTime: '2 min read',
-    excerpt: 'Welcome to my blog! Here I will share my journey in software engineering and AI.',
-    tags: ['Personal', 'Intro'],
+    readTime: '3 min read',
+    excerpt: 'The question that pulled me into VLM research — and why I think multimodal AI is the most interesting frontier right now.',
+    tags: ['Personal', 'Research', 'VLMs'],
     content: `
-Hello world! I'm **Madhav Kataria**, and this is my first blog post.
+I get asked a lot: *"Why VLMs specifically?"*
 
-I created this space to share my experiences, learnings, and experiments in the world of **Artificial Intelligence** and **Software Engineering**.
+The honest answer is that I find them endlessly humbling. You can build a model that aces language benchmarks, then show it a manga panel and watch it completely fall apart. **Perception and language are more entangled than most models admit.**
 
-## What to Expect
-I plan to write about:
-*   **Generative AI:** LLMs, VLMs, and Agentic workflows.
-*   **Web Development:** Modern frameworks like Next.js, React, and performance optimization.
-*   **Research:** Breakdowns of interesting papers and my own research projects.
-*   **Personal Growth:** Lessons learned during my journey as a developer and researcher.
+## The Problem That Hooked Me
 
-Stay tuned for more!
+Most AI benchmarks measure what models *can* do in controlled settings. My Re:Verse paper asked a different question: can a state-of-the-art VLM *read* a manga — follow the visual story, understand panel order, and reason about what happens next?
+
+The answer, overwhelmingly, was *not yet*. And that gap is exactly where the interesting work lives.
+
+## What I'm Building Toward
+
+I'm interested in the intersection of:
+*   **Multimodal reasoning** — models that see and understand, not just classify.
+*   **Autonomous agents** — systems that take actions, not just answer questions.
+*   **High-performance inference** — because none of it matters if it can't run in the real world.
+
+This blog is where I'll think out loud about that work — papers, engineering decisions, and the occasional rabbit hole.
+
+If any of this resonates, reach out. I'm always up for a good conversation about where AI is actually going.
     `
   }
 ];
