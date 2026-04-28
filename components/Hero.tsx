@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
 
                 {/* Subtext */}
                 <p className="text-2xl md:text-3xl text-gray-400 font-medium tracking-tight max-w-2xl mx-auto mb-12 animate-slide-up opacity-0" style={{ animationDelay: '0.5s', animationFillMode: 'forwards' }} role="doc-subtitle">
-                    AI Researcher & Developer – Specializing in Vision-Language Models & Generative AI
+                    Building the next generation of AI — from multimodal research to production-grade autonomous systems.
                 </p>
 
                 {/* CTA Buttons - Glassmorphism & High Contrast */}
