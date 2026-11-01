@@ -20,6 +20,8 @@ export interface ResearchPaper {
   title: string;
   conference: string;
   year: string;
+  venue?: string;
+  tags?: string[];
   abstract: string;
   link?: string;
   authors?: string[];
