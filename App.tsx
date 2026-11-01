@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { Link, NavLink, Navigate, Route, Routes, useNavigate, useParams } from 'react-router-dom';
+import { Link, NavLink, Navigate, Route, Routes, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { BLOG_POSTS, PAPERS, PROJECTS } from './constants';
 
 type Theme = 'light' | 'dark';
@@ -413,32 +413,6 @@ const AboutPage = ({
   setTerminalInput: React.Dispatch<React.SetStateAction<string>>;
   handleTerminalSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }) => {
-  const getPaperTitle = (id: string) => PAPERS.find((paper) => paper.id === id)?.title ?? 'Featured paper';
-
-  const previewResearchRows = [
-    {
-      id: 'preview-recognize',
-      leftLabel: 'NeurIPS 2026',
-      title: getPaperTitle('p2'),
-      badge: 'POSTER',
-      to: '/research',
-    },
-    {
-      id: 'preview-reverse',
-      leftLabel: 'ICCV 2025 Workshop',
-      title: getPaperTitle('p1'),
-      badge: 'BEST PAPER',
-      to: '/research',
-    },
-    {
-      id: 'preview-plottwist',
-      leftLabel: 'EMNLP 2026 Workshop',
-      title: getPaperTitle('p3'),
-      badge: 'ORAL',
-      to: '/research',
-    },
-  ];
-
   return (
     <>
       <BootHeader
@@ -512,6 +486,30 @@ const AboutPage = ({
         <a href={TWITTER} target="_blank" rel="noreferrer" className="contact-chip">✗ twitter</a>
       </div>
 
+      <SectionCommand command="ls" flag="-lt" arg="./research/" trailing={`| head -${PAPERS.length}`} />
+      <div className="mini-papers">
+        {PAPERS.map((paper) => (
+          <div key={paper.id} className="mini-paper">
+            <span className="mini-venue">{paper.venue ?? paper.year}</span>
+            <Link to={`/research?open=${paper.id}`} className="mini-title-link">
+              {paper.title}
+            </Link>
+            {paper.tags && paper.tags.length > 0 ? (
+              <span className="mini-tags">
+                {paper.tags.map((tag) => (
+                  <span key={tag} className="mini-tag">
+                    {tag}
+                  </span>
+                ))}
+              </span>
+            ) : null}
+          </div>
+        ))}
+        <div className="mini-more">
+          <Link to="/research">$ ls ./research/ - view all →</Link>
+        </div>
+      </div>
+
       <SectionCommand command="tail" flag="-n 10" arg="updates.log" />
       <div className="log-block">
         <div className="log-entry">
@@ -543,20 +541,6 @@ const AboutPage = ({
           <span className="log-ts">2024-09</span>
           <span className="log-lvl new">NEW</span>
           <span className="log-msg">Joined the Image Analysis and Biometrics Lab at IIT Jodhpur, working with Dr. Mayank Vatsa and Dr. Richa Singh.</span>
-        </div>
-      </div>
-
-      <SectionCommand command="ls" flag="-lt" arg="./research/" trailing="| head -3" />
-      <div className="mini-papers">
-        {previewResearchRows.map((row) => (
-          <Link key={row.id} to={row.to} className="mini-paper teaser-row">
-            <span className="teaser-left">{row.leftLabel}</span>
-            <span className="mini-title-link">{row.title}</span>
-            <span className="mini-badge boxed">{row.badge}</span>
-          </Link>
-        ))}
-        <div className="mini-more">
-          <Link to="/research">$ ls ./research/ - view all →</Link>
         </div>
       </div>
 
@@ -629,7 +613,9 @@ const ProjectsPage = () => {
 };
 
 const ResearchPage = () => {
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(0);
+  const [searchParams] = useSearchParams();
+  const openIndex = PAPERS.findIndex((paper) => paper.id === searchParams.get('open'));
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(openIndex >= 0 ? openIndex : 0);
 
   return (
     <>
@@ -706,6 +692,7 @@ const ResearchPage = () => {
                   )
                 }
                 body={paper.abstract}
+                tags={paper.tags}
                 links={[
                   ...(paper.codeUrl
                     ? [
