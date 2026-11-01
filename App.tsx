@@ -16,7 +16,7 @@ const TWITTER = 'https://twitter.com/madhav_kataria';
 const SCHOLAR = 'https://scholar.google.com/citations?user=wC2Wm9gAAAAJ&hl=en';
 const CV_URL = '/madhav-kataria-cv.pdf';
 const CRCV_URL = 'https://www.crcv.ucf.edu/';
-const SONY_URL = 'https://www.sonyresearchindia.com/';
+const SONY_URL = 'https://ai.sony/';
 const IAB_URL = 'http://iab-rubric.org/';
 const IITJ_URL = 'https://iitj.ac.in/';
 const UCF_URL = 'https://www.ucf.edu/';
@@ -467,7 +467,7 @@ const AboutPage = ({
         </div>
         <div className="who-text-col">
           <div className="who-field"><span className="who-key">name</span><span className="who-sep">:</span> <span className="who-val bright">Madhav Kataria</span></div>
-          <div className="who-field"><span className="who-key">now</span><span className="who-sep">:</span> <span className="who-val">research intern · CRCV, UCF · Sony Research India</span></div>
+          <div className="who-field"><span className="who-key">now</span><span className="who-sep">:</span> <span className="who-val">research intern · CRCV, UCF · <ExtLink href={SONY_URL}>Sony Research India</ExtLink></span></div>
           <div className="who-field"><span className="who-key">education</span><span className="who-sep">:</span> <span className="who-val">B.Tech Chemical Engineering, AI minor · IIT Jodhpur · 2027</span></div>
           <div className="who-field"><span className="who-key">focus</span><span className="who-sep">:</span> <span className="who-val">long-horizon multimodal understanding · evaluation · memory</span></div>
         </div>
