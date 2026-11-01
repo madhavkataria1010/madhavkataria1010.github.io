@@ -412,27 +412,29 @@ const AboutPage = ({
   setTerminalInput: React.Dispatch<React.SetStateAction<string>>;
   handleTerminalSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }) => {
+  const getPaperTitle = (id: string) => PAPERS.find((paper) => paper.id === id)?.title ?? 'Featured paper';
+
   const previewResearchRows = [
     {
-      id: 'preview-paper',
-      leftLabel: 'ICCV AIstory Workshop',
-      title: PAPERS[0]?.title ?? 'Featured paper',
+      id: 'preview-recognize',
+      leftLabel: 'NeurIPS 2026',
+      title: getPaperTitle('p2'),
+      badge: 'POSTER',
+      to: '/research',
+    },
+    {
+      id: 'preview-reverse',
+      leftLabel: 'ICCV 2025 Workshop',
+      title: getPaperTitle('p1'),
       badge: 'BEST PAPER',
       to: '/research',
     },
     {
-      id: 'preview-project-1',
-      leftLabel: getProjectBadge(PROJECTS[0]?.category ?? 'SYSTEM'),
-      title: PROJECTS[0]?.title ?? 'Featured project',
-      badge: 'PROJECT',
-      to: '/projects',
-    },
-    {
-      id: 'preview-project-2',
-      leftLabel: getProjectBadge(PROJECTS[1]?.category ?? 'SYSTEM'),
-      title: PROJECTS[1]?.title ?? 'Second featured project',
-      badge: 'PROJECT',
-      to: '/projects',
+      id: 'preview-plottwist',
+      leftLabel: 'EMNLP 2026 Workshop',
+      title: getPaperTitle('p3'),
+      badge: 'ORAL',
+      to: '/research',
     },
   ];
 
@@ -491,6 +493,11 @@ const AboutPage = ({
       <SectionCommand command="tail" flag="-n 10" arg="updates.log" />
       <div className="log-block">
         <div className="log-entry">
+          <span className="log-ts">2026-09</span>
+          <span className="log-lvl paper">PAPER</span>
+          <span className="log-msg">Re:Cognize accepted at NeurIPS 2026 as a poster (co-first author).</span>
+        </div>
+        <div className="log-entry">
           <span className="log-ts">2026-04</span>
           <span className="log-lvl new">NEW</span>
           <span className="log-msg">Research Intern at CRCV Lab, University of Central Florida.</span>
@@ -498,7 +505,7 @@ const AboutPage = ({
         <div className="log-entry">
           <span className="log-ts">2025-08</span>
           <span className="log-lvl paper">PAPER</span>
-          <span className="log-msg">Re:Verse won Best Paper Award and Oral Presentation (Top 5%) at ICCV AIstory 2025 Workshop.</span>
+          <span className="log-msg">Re:Verse won Best Paper Award and Oral Presentation (Top 5%) at the ICCV 2025 AISTORY Workshop.</span>
         </div>
         <div className="log-entry">
           <span className="log-ts">2025-01</span>

@@ -109,13 +109,31 @@ export const PROJECTS: Project[] = [
 
 export const PAPERS: ResearchPaper[] = [
   {
+    id: 'p2',
+    title: 'Re:Cognize: Open-Set Comic Character Re-Identification',
+    conference: 'NeurIPS',
+    year: '2026',
+    abstract: 'Poster, NeurIPS 2026. Co-first author. Re:Cognize asks character re-identification models to recognize comic and manga characters as the story unfolds, instead of starting from a fixed cast list. Across three manga corpora, we evaluate five Re-ID backbones and MECHA, a memory-augmented baseline. Recognizing familiar characters is nearly solved, but deciding which matches to trust is not. Our method, VOUCH, updates the gallery only when the page supports a match and recovers one-third to two-thirds of the gain available from perfect labels, with no extra parameters.',
+    link: 'https://arxiv.org/abs/2609.34032',
+    authors: ['Aaditya Baranwal', 'Madhav Kataria', 'Yogesh S Rawat', 'Shruti Vyas'],
+  },
+  {
     id: 'p1',
-    title: 'Re:Verse — Can Your VLM Read a Manga?',
-    conference: 'ICCV AIstory Workshop Best Paper',
+    title: 'Re:Verse: Can Your VLM Read a Manga?',
+    conference: 'ICCV AISTORY Workshop · Best Paper',
     year: '2025',
-    abstract: 'Best Paper Award, Oral Presentation, Top 5%, ICCV AIstory 2025 Workshop. Re:Verse evaluates whether vision-language models can understand long-form manga narratives across panel-level grounding, temporal causality, character consistency, and cross-panel story cohesion.',
+    abstract: 'Best Paper Award, Oral Presentation, Top 5%, ICCV 2025 AISTORY Workshop. Re:Verse evaluates whether vision-language models can understand long-form manga narratives across panel-level grounding, temporal causality, character consistency, and cross-panel story cohesion.',
     link: 'https://arxiv.org/abs/2508.08508',
-    authors: ['Madhav Kataria'],
+    authors: ['Aaditya Baranwal', 'Madhav Kataria', 'Naitik Agrawal', 'Yogesh S Rawat', 'Shruti Vyas'],
+  },
+  {
+    id: 'p3',
+    title: 'PlotTwist: A Creative Plot Generation Framework with Small Language Models',
+    conference: 'EMNLP LUHME Workshop',
+    year: '2026',
+    abstract: 'Oral Presentation, EMNLP 2026 LUHME Workshop. PlotTwist lets small language models with at most 3B active parameters turn a short premise into a full plot that competes with frontier systems. It combines an aspect-rating reward model, a Mixture-of-Experts plot generator aligned with DPO, and an agentic evaluation module that uses a cross-family jury. PlotTwist beats every baseline on win rate except the strongest, where it stays competitive.',
+    link: 'https://arxiv.org/abs/2603.16410',
+    authors: ['Abhinav Thorat', 'Ravi Kolla', 'Jyotin Goel', 'Madhav Kataria', 'Niranjan Pedanekar'],
   },
 ];
 
