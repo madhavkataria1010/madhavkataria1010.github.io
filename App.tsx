@@ -15,6 +15,9 @@ const LINKEDIN = 'https://www.linkedin.com/in/madhavkataria/';
 const TWITTER = 'https://twitter.com/madhav_kataria';
 const SCHOLAR = 'https://scholar.google.com/citations?user=wC2Wm9gAAAAJ&hl=en';
 const CV_URL = '/madhav-kataria-cv.pdf';
+const CRCV_URL = 'https://www.crcv.ucf.edu/';
+const SONY_URL = 'https://www.sonyresearchindia.com/';
+const IAB_URL = 'http://iab-rubric.org/';
 const ABOUT_AVATAR = '/madhav.jpg';
 const SITE_HOST = 'madhavkataria.com';
 
@@ -144,6 +147,26 @@ const SectionCommand = ({
 
 const TextBlock = ({ children }: { children: React.ReactNode }) => <div className="block">{children}</div>;
 
+const Hl = ({ children }: { children: React.ReactNode }) => <span className="hl">{children}</span>;
+
+const ExtLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
+  <a href={href} target="_blank" rel="noreferrer" className="prose-link">
+    {children}
+  </a>
+);
+
+const PaperLink = ({ id, children }: { id: string; children: React.ReactNode }) => (
+  <Link to={`/research?open=${id}`} className="prose-link">
+    {children}
+  </Link>
+);
+
+// Copy kept as plain strings in constants.ts marks key phrases with **double asterisks**.
+const renderHighlights = (text: string) =>
+  text.split(/(\*\*[^*]+\*\*)/g).map((part, index) =>
+    part.startsWith('**') && part.endsWith('**') ? <span key={index} className="hl">{part.slice(2, -2)}</span> : part,
+  );
+
 const PromptFooter = ({ prompt }: { prompt: string }) => (
   <div className="terminal-prompt static-prompt">
     <span className="ps1">{prompt}</span>
@@ -195,7 +218,7 @@ const InlineExpansion = ({
 }) => (
   <div className="row-expansion">
     {metaLine ? <div className="row-expansion-meta">{metaLine}</div> : null}
-    <p className="row-expansion-copy">{body}</p>
+    <p className="row-expansion-copy">{renderHighlights(body)}</p>
     {tags && tags.length > 0 ? (
       <div className="row-expansion-tags">
         {tags.map((tag) => (
@@ -442,38 +465,43 @@ const AboutPage = ({
       <TextBlock>
         <p>
           My name is Madhav, and I'm a final-year undergrad at IIT Jodhpur, studying Chemical Engineering with a minor
-          in AI. I work on multimodal models, mostly on what happens when the input gets long. A model can describe
-          any single manga panel you show it and still lose track of the main character a few chapters later. I want
-          to know why that happens, and how to fix it in a way that carries over from one model to the next.
+          in AI. I work on <Hl>multimodal models</Hl>, mostly on what happens when <Hl>the input gets long</Hl>. A
+          model can describe any single manga panel you show it and still lose track of the main character a few
+          chapters later. I want to know why that happens, and how to fix it in a way that{' '}
+          <Hl>carries over from one model to the next</Hl>.
         </p>
         <p>
-          Right now I'm a research intern at the Center for Research in Computer Vision (CRCV) at UCF, where I work
-          with Dr. Yogesh Rawat and Dr. Shruti Vyas on long-horizon visual understanding, mostly through manga. Our
-          first paper, Re:Verse, won Best Paper at the ICCV 2025 AISTORY workshop, and Re:Cognize, where I'm co-first
-          author, is at NeurIPS 2026. Back at IIT Jodhpur, I also work with Dr. Mayank Vatsa and Dr. Richa Singh in
-          the Image Analysis and Biometrics Lab.
+          Right now I'm a research intern at the{' '}
+          <ExtLink href={CRCV_URL}>Center for Research in Computer Vision (CRCV)</ExtLink> at UCF, where I work with
+          Dr. Yogesh Rawat and Dr. Shruti Vyas on <Hl>long-horizon visual understanding</Hl>, mostly through manga.
+          Our first paper, <PaperLink id="p1">Re:Verse</PaperLink>, won Best Paper at the ICCV 2025 AISTORY workshop,
+          and <PaperLink id="p2">Re:Cognize</PaperLink>, where I'm co-first author, is at NeurIPS 2026. Back at IIT
+          Jodhpur, I also work with Dr. Mayank Vatsa and Dr. Richa Singh in the{' '}
+          <ExtLink href={IAB_URL}>Image Analysis and Biometrics Lab</ExtLink>.
         </p>
         <p>
-          I'm also a research intern at Sony Research India. My main project there is a causal what-if simulator for a
-          streaming platform with more than 10M users. It lets the team test decisions like release timing or a
-          catalog refresh before they go live, using only past logs. It sounds far from manga, but it's the same
-          problem underneath: over a long rollout, small errors pile up unless something structural keeps the model in
-          check. I also worked on PlotTwist (oral, EMNLP 2026 LUHME workshop), which shows that small language models
-          can write movie plots that match or beat much larger frontier models.
+          I'm also a research intern at <ExtLink href={SONY_URL}>Sony Research India</ExtLink>. My main project there
+          is a <Hl>causal what-if simulator</Hl> for a streaming platform with more than 10M users. It lets the team
+          test decisions like release timing or a catalog refresh before they go live, using only past logs. It
+          sounds far from manga, but it's the same problem underneath: over a long rollout,{' '}
+          <Hl>small errors pile up</Hl> unless something structural keeps the model in check. I also worked on{' '}
+          <PaperLink id="p3">PlotTwist</PaperLink> (oral, EMNLP 2026 LUHME workshop), which shows that{' '}
+          <Hl>small language models</Hl> can write movie plots that match or beat much larger frontier models.
         </p>
         <p>
-          I came to ML from chemical engineering, which taught me to study how a plant fails before trusting it to
-          run. I've kept the habit. In every group I've worked in, my most useful result was a failure, and each one
-          turned into the next research question.
+          I came to ML from chemical engineering, which taught me to study <Hl>how a plant fails</Hl> before trusting
+          it to run. I've kept the habit. In every group I've worked in, my most useful result was a failure, and
+          each one turned into the next research question.
         </p>
         <p>
           I also like building things that work outside a notebook. I led the ML side of our Inter IIT Tech Meet team,
-          which placed first of 23 IITs on Arista Networks' WiFi problem, and I've built voice agents, browser agents
-          and RAG systems along the way.
+          which placed <Hl>first of 23 IITs</Hl> on Arista Networks' WiFi problem, and I've built{' '}
+          <Link to="/projects" className="prose-link">voice agents, browser agents and RAG systems</Link> along the
+          way.
         </p>
         <p>
           If you're working on something close to this, or just want to talk about multimodal models,{' '}
-          <Link to="/contact" className="terminal-link">get in touch</Link>.
+          <Link to="/contact" className="prose-link">get in touch</Link>.
         </p>
       </TextBlock>
 
@@ -515,12 +543,12 @@ const AboutPage = ({
         <div className="log-entry">
           <span className="log-ts">2026-09</span>
           <span className="log-lvl paper">PAPER</span>
-          <span className="log-msg">Re:Cognize, on recognizing manga characters page by page as new ones keep showing up, was accepted at NeurIPS 2026. I'm co-first author.</span>
+          <span className="log-msg"><PaperLink id="p2">Re:Cognize</PaperLink>, on recognizing manga characters page by page as new ones keep showing up, was accepted at NeurIPS 2026. I'm co-first author.</span>
         </div>
         <div className="log-entry">
           <span className="log-ts">2026-06</span>
           <span className="log-lvl new">NEW</span>
-          <span className="log-msg">Started as a research intern at Sony Research India, on causal what-if simulation for a streaming platform with 10M+ users.</span>
+          <span className="log-msg">Started as a research intern at <ExtLink href={SONY_URL}>Sony Research India</ExtLink>, on causal what-if simulation for a streaming platform with 10M+ users.</span>
         </div>
         <div className="log-entry">
           <span className="log-ts">2025-12</span>
@@ -530,17 +558,17 @@ const AboutPage = ({
         <div className="log-entry">
           <span className="log-ts">2025-08</span>
           <span className="log-lvl paper">PAPER</span>
-          <span className="log-msg">Re:Verse, on whether multimodal models can actually follow a manga story, won Best Paper and an oral (top 5%) at the ICCV 2025 AISTORY workshop.</span>
+          <span className="log-msg"><PaperLink id="p1">Re:Verse</PaperLink>, on whether multimodal models can actually follow a manga story, won Best Paper and an oral (top 5%) at the ICCV 2025 AISTORY workshop.</span>
         </div>
         <div className="log-entry">
           <span className="log-ts">2025-06</span>
           <span className="log-lvl new">NEW</span>
-          <span className="log-msg">Started at CRCV, UCF, working with Dr. Yogesh Rawat and Dr. Shruti Vyas.</span>
+          <span className="log-msg">Started at <ExtLink href={CRCV_URL}>CRCV, UCF</ExtLink>, working with Dr. Yogesh Rawat and Dr. Shruti Vyas.</span>
         </div>
         <div className="log-entry">
           <span className="log-ts">2024-09</span>
           <span className="log-lvl new">NEW</span>
-          <span className="log-msg">Joined the Image Analysis and Biometrics Lab at IIT Jodhpur, working with Dr. Mayank Vatsa and Dr. Richa Singh.</span>
+          <span className="log-msg">Joined the <ExtLink href={IAB_URL}>Image Analysis and Biometrics Lab</ExtLink> at IIT Jodhpur, working with Dr. Mayank Vatsa and Dr. Richa Singh.</span>
         </div>
       </div>
 
@@ -630,32 +658,36 @@ const ResearchPage = () => {
       <SectionCommand command="cat" arg="research_statement.txt" />
       <TextBlock>
         <p>
-          Multimodal models now do well on short clips and single images. On long, sequential inputs they still break,
-          and standard benchmarks rarely show it, partly because many of them can be solved from a single frame. My
-          research is about these failures: finding them, understanding why they happen, and fixing them.
+          Multimodal models now do well on short clips and single images. On <Hl>long, sequential inputs</Hl> they
+          still break, and standard benchmarks rarely show it, partly because many of them can be solved from a
+          single frame. My research is about these failures: <Hl>finding them</Hl>, <Hl>understanding why they
+          happen</Hl>, and <Hl>fixing them</Hl>.
         </p>
         <p>
-          Most of my work so far uses manga. It's a hard test, because characters change clothes, age and art style,
-          and the same face looks different from one panel to the next. Re:Verse asked whether multimodal models can
-          read a manga at all, and mostly they can't. Re:Cognize asked whether they can recognize characters page by
-          page while new ones keep appearing. Recognizing a fixed cast turned out to be nearly solved. The trouble
-          starts when a model writes its own matches into memory. What I took from it is that memory has to be
-          verified, not just stored.
+          Most of my work so far uses <Hl>manga</Hl>. It's a hard test, because characters change clothes, age and
+          art style, and the same face looks different from one panel to the next.{' '}
+          <PaperLink id="p1">Re:Verse</PaperLink> asked whether multimodal models can read a manga at all, and mostly
+          they can't. <PaperLink id="p2">Re:Cognize</PaperLink> asked whether they can <Hl>recognize characters</Hl>{' '}
+          page by page while new ones keep appearing. Recognizing a fixed cast turned out to be nearly solved. The
+          trouble starts when a model writes its own matches into memory. What I took from it is that{' '}
+          <Hl>memory has to be verified, not just stored</Hl>.
         </p>
         <p>
-          The same problem shows up outside manga. At Sony Research India I'm building a causal what-if simulator for
-          a streaming platform with more than 10M users, and over a long simulated rollout, small errors pile up there
-          too. I found that 61% of the apparent drift in user behavior came from label artifacts, not real change.
-          With that fixed, I learned a causal graph from 73 weeks of logs and used it to keep the LLM agents that
-          simulate users in check. When the LLM also got to decide whether a user was active at all, simulated
-          activity dropped to under a quarter of the real rate. Limiting it to in-app choices fixed that. In
-          out-of-time tests, the simulator picks the right show 78% of the time from a 339-title catalog.
+          The same problem shows up outside manga. At <ExtLink href={SONY_URL}>Sony Research India</ExtLink> I'm
+          building a <Hl>causal what-if simulator</Hl> for a streaming platform with more than 10M users, and over a
+          long simulated rollout, small errors pile up there too. I found that 61% of the apparent drift in user
+          behavior came from <Hl>label artifacts</Hl>, not real change. With that fixed, I learned a{' '}
+          <Hl>causal graph</Hl> from 73 weeks of logs and used it to keep the <Hl>LLM agents</Hl> that simulate users
+          in check. When the LLM also got to decide whether a user was active at all, simulated activity dropped to
+          under a quarter of the real rate. Limiting it to in-app choices fixed that. In out-of-time tests, the
+          simulator picks the right show 78% of the time from a 339-title catalog.
         </p>
         <p>
-          The questions I want to spend a PhD on come out of both. How do we build evaluations that make a model track
-          a character or event across a gap it can't shortcut, and that show where in the sequence it starts to break
-          instead of just an average score? When a model fails, was the information never captured, or was it stored
-          and never recalled? And can a fix learned on one model family's mistakes help another?
+          The questions I want to spend a PhD on come out of both. How do we build <Hl>evaluations</Hl> that make a
+          model track a character or event across a gap it can't shortcut, and that show <Hl>where in the sequence
+          it starts to break</Hl> instead of just an average score? When a model fails, was the information{' '}
+          <Hl>never captured</Hl>, or <Hl>stored and never recalled</Hl>? And can a{' '}
+          <Hl>fix learned on one model family's mistakes</Hl> help another?
         </p>
       </TextBlock>
 
@@ -826,11 +858,12 @@ const ContactPage = () => (
     <SectionCommand command="cat" arg="contact.txt" />
     <TextBlock>
       <p>
-        If you work on long-context multimodal models, evaluation, or visual storytelling and think we'd get along,
-        I'd like to hear from you. Same if you just have a question about something on this site.
+        If you work on <Hl>long-context multimodal models</Hl>, <Hl>evaluation</Hl>, or <Hl>visual storytelling</Hl>{' '}
+        and think we'd get along, I'd like to hear from you. Same if you just have a question about something on this
+        site.
       </p>
       <p>
-        Email is the best way to reach me. I'm also on LinkedIn and GitHub.
+        <a href={EMAIL} className="prose-link">Email</a> is the best way to reach me. I'm also on LinkedIn and GitHub.
       </p>
     </TextBlock>
 

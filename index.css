@@ -211,7 +211,6 @@ main {
 
 .boot-header,
 .who-block,
-.block,
 .log-block,
 .row-list,
 .detail-panel,
@@ -343,6 +342,21 @@ main {
 
 .block p + p {
   margin-top: 10px;
+}
+
+.hl {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.prose-link {
+  color: var(--accent);
+  font-weight: 500;
+  transition: color 140ms ease;
+}
+
+.prose-link:hover {
+  color: var(--accent-2);
 }
 
 .contact-row,
@@ -831,7 +845,8 @@ main {
 }
 
 .article-strong {
-  color: var(--bright);
+  color: var(--accent);
+  font-weight: 500;
 }
 
 .article-inline-code {
