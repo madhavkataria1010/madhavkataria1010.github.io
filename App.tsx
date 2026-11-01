@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, NavLink, Navigate, Route, Routes, useNavigate, useParams } from 'react-router-dom';
 import { BLOG_POSTS, PAPERS, PROJECTS } from './constants';
 
@@ -357,34 +357,49 @@ const TerminalConsole = ({
   value: string;
   onChange: (nextValue: string) => void;
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
-}) => (
-  <>
-    <div className="terminal-prompt">
-      <span className="ps1">madhav@home:~$</span>
-      <form className="terminal-form" onSubmit={onSubmit}>
-        <input
-          type="text"
-          className="t-input"
-          value={value}
-          onChange={(event) => onChange(event.target.value)}
-          placeholder="type 'help'"
-          autoComplete="off"
-          spellCheck={false}
-        />
-      </form>
-    </div>
-    <div className="t-response">
-      {entries.map((entry, index) => (
-        <div key={`${entry.command}-${index}`} className="terminal-entry">
-          <div className="terminal-entry-command">
-            <span className="ps1">madhav@home:~$</span> {entry.command}
+}) => {
+  const promptRef = useRef<HTMLDivElement>(null);
+  const hasMounted = useRef(false);
+
+  // Keep the live prompt in view as new output pushes it down, but not on first render.
+  useEffect(() => {
+    if (!hasMounted.current) {
+      hasMounted.current = true;
+      return;
+    }
+
+    promptRef.current?.scrollIntoView({ block: 'nearest' });
+  }, [entries.length]);
+
+  return (
+    <div className="terminal-console">
+      <div className="t-response">
+        {entries.map((entry, index) => (
+          <div key={`${entry.command}-${index}`} className="terminal-entry">
+            <div className="terminal-entry-command">
+              <span className="ps1">madhav@home:~$</span> {entry.command}
+            </div>
+            <pre>{entry.output}</pre>
           </div>
-          <pre>{entry.output}</pre>
-        </div>
-      ))}
+        ))}
+      </div>
+      <div ref={promptRef} className="terminal-prompt">
+        <span className="ps1">madhav@home:~$</span>
+        <form className="terminal-form" onSubmit={onSubmit}>
+          <input
+            type="text"
+            className="t-input"
+            value={value}
+            onChange={(event) => onChange(event.target.value)}
+            placeholder="type 'help'"
+            autoComplete="off"
+            spellCheck={false}
+          />
+        </form>
+      </div>
     </div>
-  </>
-);
+  );
+};
 
 const AboutPage = ({
   terminalEntries,
@@ -546,6 +561,7 @@ const ProjectsPage = () => {
                 metaLine={
                   <>
                     <span className="row-expansion-highlight">{project.category}</span>
+                    <span className="row-expansion-author-sep"> | </span>
                     <span>{project.metrics ?? 'Active build'}</span>
                   </>
                 }
@@ -556,7 +572,7 @@ const ProjectsPage = () => {
                   (project.githubUrl
                     ? [
                         {
-                          label: 'work Github',
+                          label: 'GitHub',
                           href: project.githubUrl,
                         },
                       ]
@@ -641,7 +657,7 @@ const ResearchPage = () => {
                   ...(paper.codeUrl
                     ? [
                         {
-                          label: 'work Github',
+                          label: 'GitHub',
                           href: paper.codeUrl,
                         },
                       ]
@@ -825,6 +841,10 @@ const Layout = () => {
 
     if (value === 'help') {
       output = getTerminalHelp();
+    } else if (['hi', 'hello', 'hey', 'yo', 'sup'].includes(value)) {
+      output = "hey! I'm Madhav. type 'help' to see what you can open from here.";
+    } else if (value === 'whoami') {
+      output = 'guest - welcome to my corner of the internet';
     } else if (value === 'about') {
       output = 'open /';
       navigate('/');

@@ -643,6 +643,26 @@ main {
   gap: 8px;
 }
 
+.terminal-console {
+  margin-top: 46px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.terminal-console .terminal-prompt {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.terminal-console .t-response {
+  margin-top: 0;
+}
+
+.terminal-console .t-response:not(:empty) {
+  margin-bottom: 12px;
+}
+
 .ps1 {
   color: var(--prompt);
   white-space: nowrap;
