@@ -18,6 +18,13 @@ const CV_URL = '/madhav-kataria-cv.pdf';
 const CRCV_URL = 'https://www.crcv.ucf.edu/';
 const SONY_URL = 'https://www.sonyresearchindia.com/';
 const IAB_URL = 'http://iab-rubric.org/';
+const IITJ_URL = 'https://iitj.ac.in/';
+const UCF_URL = 'https://www.ucf.edu/';
+const ARISTA_URL = 'https://www.arista.com/';
+const NEURIPS_URL = 'https://neurips.cc/';
+const VYAS_URL = 'https://vyas-lab.github.io/';
+const VATSA_URL = 'http://home.iitj.ac.in/~mvatsa/';
+const RICHA_URL = 'http://home.iitj.ac.in/~richa/';
 const ABOUT_AVATAR = '/madhav.jpg';
 const SITE_HOST = 'madhavkataria.com';
 
@@ -145,7 +152,9 @@ const SectionCommand = ({
   </div>
 );
 
-const TextBlock = ({ children }: { children: React.ReactNode }) => <div className="block">{children}</div>;
+const TextBlock = ({ children, className }: { children: React.ReactNode; className?: string }) => (
+  <div className={className ? `block ${className}` : 'block'}>{children}</div>
+);
 
 const Hl = ({ children }: { children: React.ReactNode }) => <span className="hl">{children}</span>;
 
@@ -462,7 +471,7 @@ const AboutPage = ({
       </div>
 
       <SectionCommand command="cat" arg="about.txt" />
-      <TextBlock>
+      <TextBlock className="bio">
         <p>
           My name is Madhav, and I'm a final-year undergrad at IIT Jodhpur, studying Chemical Engineering with a minor
           in AI. I work on <Hl>multimodal models</Hl>, mostly on what happens when <Hl>the input gets long</Hl>. A
