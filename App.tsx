@@ -461,7 +461,6 @@ const AboutPage = ({
           <div className="who-field"><span className="who-key">now</span><span className="who-sep">:</span> <span className="who-val">research intern · CRCV, UCF · Sony Research India</span></div>
           <div className="who-field"><span className="who-key">education</span><span className="who-sep">:</span> <span className="who-val">B.Tech Chemical Engineering, AI minor · IIT Jodhpur · 2027</span></div>
           <div className="who-field"><span className="who-key">focus</span><span className="who-sep">:</span> <span className="who-val">long-horizon multimodal understanding · evaluation · memory</span></div>
-          <div className="who-field"><span className="who-key">status</span><span className="who-sep">:</span> <span className="who-val">applying to PhD programs starting in 2027</span></div>
         </div>
       </div>
 
@@ -477,9 +476,16 @@ const AboutPage = ({
           Right now I'm a research intern at the Center for Research in Computer Vision (CRCV) at UCF, where I work
           with Dr. Yogesh Rawat and Dr. Shruti Vyas on long-horizon visual understanding, mostly through manga. Our
           first paper, Re:Verse, won Best Paper at the ICCV 2025 AISTORY workshop, and Re:Cognize, where I'm co-first
-          author, is at NeurIPS 2026. I'm also a research intern at Sony Research India, where I worked on PlotTwist
-          (oral, EMNLP 2026 LUHME workshop). Back at IIT Jodhpur, I work with Dr. Mayank Vatsa and Dr. Richa Singh in
+          author, is at NeurIPS 2026. Back at IIT Jodhpur, I also work with Dr. Mayank Vatsa and Dr. Richa Singh in
           the Image Analysis and Biometrics Lab.
+        </p>
+        <p>
+          I'm also a research intern at Sony Research India. My main project there is a causal what-if simulator for a
+          streaming platform with more than 10M users. It lets the team test decisions like release timing or a
+          catalog refresh before they go live, using only past logs. It sounds far from manga, but it's the same
+          problem underneath: over a long rollout, small errors pile up unless something structural keeps the model in
+          check. I also worked on PlotTwist (oral, EMNLP 2026 LUHME workshop), which shows that small language models
+          can write movie plots that match or beat much larger frontier models.
         </p>
         <p>
           I came to ML from chemical engineering, which taught me to study how a plant fails before trusting it to
@@ -516,7 +522,7 @@ const AboutPage = ({
         <div className="log-entry">
           <span className="log-ts">2026-06</span>
           <span className="log-lvl new">NEW</span>
-          <span className="log-msg">Started as a research intern at Sony Research India.</span>
+          <span className="log-msg">Started as a research intern at Sony Research India, on causal what-if simulation for a streaming platform with 10M+ users.</span>
         </div>
         <div className="log-entry">
           <span className="log-ts">2025-12</span>
@@ -651,7 +657,16 @@ const ResearchPage = () => {
           verified, not just stored.
         </p>
         <p>
-          The questions I want to spend a PhD on come from there. How do we build evaluations that make a model track
+          The same problem shows up outside manga. At Sony Research India I'm building a causal what-if simulator for
+          a streaming platform with more than 10M users, and over a long simulated rollout, small errors pile up there
+          too. I found that 61% of the apparent drift in user behavior came from label artifacts, not real change.
+          With that fixed, I learned a causal graph from 73 weeks of logs and used it to keep the LLM agents that
+          simulate users in check. When the LLM also got to decide whether a user was active at all, simulated
+          activity dropped to under a quarter of the real rate. Limiting it to in-app choices fixed that. In
+          out-of-time tests, the simulator picks the right show 78% of the time from a 339-title catalog.
+        </p>
+        <p>
+          The questions I want to spend a PhD on come out of both. How do we build evaluations that make a model track
           a character or event across a gap it can't shortcut, and that show where in the sequence it starts to break
           instead of just an average score? When a model fails, was the information never captured, or was it stored
           and never recalled? And can a fix learned on one model family's mistakes help another?
