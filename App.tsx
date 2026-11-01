@@ -34,6 +34,7 @@ const PROJECT_BADGES: Record<string, string> = {
   'Procedural Generation': 'SYSTEM',
   'Computer Vision': 'VISION',
   'AI Agents': 'AGENT',
+  'Reinforcement Learning': 'RL',
   HPC: 'HPC',
 };
 
@@ -457,27 +458,42 @@ const AboutPage = ({
         </div>
         <div className="who-text-col">
           <div className="who-field"><span className="who-key">name</span><span className="who-sep">:</span> <span className="who-val bright">Madhav Kataria</span></div>
-          <div className="who-field"><span className="who-key">role</span><span className="who-sep">:</span> <span className="who-val">Research Intern, CRCV Lab, University of Central Florida</span></div>
-          <div className="who-field"><span className="who-key">education</span><span className="who-sep">:</span> <span className="who-val">B.Tech Chemical Engineering + AI Minor, IIT Jodhpur</span></div>
-          <div className="who-field"><span className="who-key">focus</span><span className="who-sep">:</span> <span className="who-val">multimodal evaluation, benchmark design, multimodal reasoning</span></div>
-          <div className="who-field"><span className="who-key">builds</span><span className="who-sep">:</span> <span className="who-val">agentic systems, retrieval pipelines, safety-aligned model evaluations</span></div>
+          <div className="who-field"><span className="who-key">now</span><span className="who-sep">:</span> <span className="who-val">research intern · CRCV, UCF · Sony Research India</span></div>
+          <div className="who-field"><span className="who-key">education</span><span className="who-sep">:</span> <span className="who-val">B.Tech Chemical Engineering, AI minor · IIT Jodhpur · 2027</span></div>
+          <div className="who-field"><span className="who-key">focus</span><span className="who-sep">:</span> <span className="who-val">long-horizon multimodal understanding · evaluation · memory</span></div>
+          <div className="who-field"><span className="who-key">status</span><span className="who-sep">:</span> <span className="who-val">applying to PhD programs starting in 2027</span></div>
         </div>
       </div>
 
       <SectionCommand command="cat" arg="about.txt" />
       <TextBlock>
         <p>
-          My name is Madhav, and I work on multimodal evaluation, benchmark design, and multimodal reasoning. I am
-          currently a Research Intern at the CRCV Lab, University of Central Florida.
+          My name is Madhav, and I'm a final-year undergrad at IIT Jodhpur, studying Chemical Engineering with a minor
+          in AI. I work on multimodal models, mostly on what happens when the input gets long. A model can describe
+          any single manga panel you show it and still lose track of the main character a few chapters later. I want
+          to know why that happens, and how to fix it in a way that carries over from one model to the next.
         </p>
         <p>
-          I am pursuing a B.Tech in Chemical Engineering with an AI Minor at IIT Jodhpur. Recent research spans
-          narrative understanding in manga, multimodal model evaluation, and applied AI systems.
+          Right now I'm a research intern at the Center for Research in Computer Vision (CRCV) at UCF, where I work
+          with Dr. Yogesh Rawat and Dr. Shruti Vyas on long-horizon visual understanding, mostly through manga. Our
+          first paper, Re:Verse, won Best Paper at the ICCV 2025 AISTORY workshop, and Re:Cognize, where I'm co-first
+          author, is at NeurIPS 2026. I'm also a research intern at Sony Research India, where I worked on PlotTwist
+          (oral, EMNLP 2026 LUHME workshop). Back at IIT Jodhpur, I work with Dr. Mayank Vatsa and Dr. Richa Singh in
+          the Image Analysis and Biometrics Lab.
         </p>
         <p>
-          I also won Gold at Inter IIT Tech Meet 2025, placing 1st among 23 IITs on the Arista Networks problem.
-          On the engineering side, I build voice agents, browser agents, and dynamic RAG systems that keep research
-          ideas close to working software.
+          I came to ML from chemical engineering, which taught me to study how a plant fails before trusting it to
+          run. I've kept the habit. In every group I've worked in, my most useful result was a failure, and each one
+          turned into the next research question.
+        </p>
+        <p>
+          I also like building things that work outside a notebook. I led the ML side of our Inter IIT Tech Meet team,
+          which placed first of 23 IITs on Arista Networks' WiFi problem, and I've built voice agents, browser agents
+          and RAG systems along the way.
+        </p>
+        <p>
+          If you're working on something close to this, or just want to talk about multimodal models,{' '}
+          <Link to="/contact" className="terminal-link">get in touch</Link>.
         </p>
       </TextBlock>
 
@@ -495,22 +511,32 @@ const AboutPage = ({
         <div className="log-entry">
           <span className="log-ts">2026-09</span>
           <span className="log-lvl paper">PAPER</span>
-          <span className="log-msg">Re:Cognize accepted at NeurIPS 2026 as a poster (co-first author).</span>
+          <span className="log-msg">Re:Cognize, on recognizing manga characters page by page as new ones keep showing up, was accepted at NeurIPS 2026. I'm co-first author.</span>
         </div>
         <div className="log-entry">
-          <span className="log-ts">2026-04</span>
+          <span className="log-ts">2026-06</span>
           <span className="log-lvl new">NEW</span>
-          <span className="log-msg">Research Intern at CRCV Lab, University of Central Florida.</span>
+          <span className="log-msg">Started as a research intern at Sony Research India.</span>
+        </div>
+        <div className="log-entry">
+          <span className="log-ts">2025-12</span>
+          <span className="log-lvl note">NOTE</span>
+          <span className="log-msg">Our Inter IIT Tech Meet team won gold, placing first of 23 IITs on Arista Networks' problem, on tuning dense office WiFi without making any client worse off.</span>
         </div>
         <div className="log-entry">
           <span className="log-ts">2025-08</span>
           <span className="log-lvl paper">PAPER</span>
-          <span className="log-msg">Re:Verse won Best Paper Award and Oral Presentation (Top 5%) at the ICCV 2025 AISTORY Workshop.</span>
+          <span className="log-msg">Re:Verse, on whether multimodal models can actually follow a manga story, won Best Paper and an oral (top 5%) at the ICCV 2025 AISTORY workshop.</span>
         </div>
         <div className="log-entry">
-          <span className="log-ts">2025-01</span>
-          <span className="log-lvl note">NOTE</span>
-          <span className="log-msg">Inter IIT Tech Meet Gold Medal - 1st among 23 IITs on the Arista Networks problem.</span>
+          <span className="log-ts">2025-06</span>
+          <span className="log-lvl new">NEW</span>
+          <span className="log-msg">Started at CRCV, UCF, working with Dr. Yogesh Rawat and Dr. Shruti Vyas.</span>
+        </div>
+        <div className="log-entry">
+          <span className="log-ts">2024-09</span>
+          <span className="log-lvl new">NEW</span>
+          <span className="log-msg">Joined the Image Analysis and Biometrics Lab at IIT Jodhpur, working with Dr. Mayank Vatsa and Dr. Richa Singh.</span>
         </div>
       </div>
 
@@ -524,7 +550,7 @@ const AboutPage = ({
           </Link>
         ))}
         <div className="mini-more">
-          <Link to="/research">$ ls ./research/ — view all →</Link>
+          <Link to="/research">$ ls ./research/ - view all →</Link>
         </div>
       </div>
 
@@ -605,25 +631,30 @@ const ResearchPage = () => {
         lines={[
           { kind: 'ok', text: <>Loaded <span className="path">{SITE_HOST}/research</span></> },
           { kind: 'ok', text: <>Mounted publications index - {PAPERS.length} entries found</> },
-          { kind: 'info', text: 'Multimodal evaluation research and publications' },
+          { kind: 'info', text: 'Long-horizon multimodal understanding' },
         ]}
       />
 
       <SectionCommand command="cat" arg="research_statement.txt" />
       <TextBlock>
         <p>
-          My research focuses on multimodal evaluation, benchmark design, and multimodal reasoning, especially where
-          models need to reason across long visual sequences, stylized domains, retrieval context, and adversarial
-          prompts.
+          Multimodal models now do well on short clips and single images. On long, sequential inputs they still break,
+          and standard benchmarks rarely show it, partly because many of them can be solved from a single frame. My
+          research is about these failures: finding them, understanding why they happen, and fixing them.
         </p>
         <p>
-          At CRCV Lab, University of Central Florida, I work on research that asks how multimodal models fail,
-          recover, retrieve, and maintain identity or causality when the input is more complicated than a single
-          clean image.
+          Most of my work so far uses manga. It's a hard test, because characters change clothes, age and art style,
+          and the same face looks different from one panel to the next. Re:Verse asked whether multimodal models can
+          read a manga at all, and mostly they can't. Re:Cognize asked whether they can recognize characters page by
+          page while new ones keep appearing. Recognizing a fixed cast turned out to be nearly solved. The trouble
+          starts when a model writes its own matches into memory. What I took from it is that memory has to be
+          verified, not just stored.
         </p>
         <p>
-          I am especially interested in work that crosses the boundary into implementation: benchmarks and methods
-          that are publishable, but also useful enough to shape real systems.
+          The questions I want to spend a PhD on come from there. How do we build evaluations that make a model track
+          a character or event across a gap it can't shortcut, and that show where in the sequence it starts to break
+          instead of just an average score? When a model fails, was the information never captured, or was it stored
+          and never recalled? And can a fix learned on one model family's mistakes help another?
         </p>
       </TextBlock>
 
@@ -786,18 +817,18 @@ const ContactPage = () => (
       lines={[
         { kind: 'ok', text: <>Loaded <span className="path">{SITE_HOST}/contact</span></> },
         { kind: 'ok', text: 'Reachability checks passed' },
-        { kind: 'info', text: 'Open to research collaboration, applied AI engineering, and multimodal evaluation work' },
+        { kind: 'info', text: 'Open to research collaborations and PhD conversations' },
       ]}
     />
 
     <SectionCommand command="cat" arg="contact.txt" />
     <TextBlock>
       <p>
-        If you want to collaborate on multimodal evaluation, benchmark design, multimodal reasoning, safety alignment,
-        or ambitious applied AI systems, feel free to reach out.
+        If you work on long-context multimodal models, evaluation, or visual storytelling and think we'd get along,
+        I'd like to hear from you. Same if you just have a question about something on this site.
       </p>
       <p>
-        Email is the cleanest path, but LinkedIn and GitHub are here as well if that fits better.
+        Email is the best way to reach me. I'm also on LinkedIn and GitHub.
       </p>
     </TextBlock>
 
