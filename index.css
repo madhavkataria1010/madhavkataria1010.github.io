@@ -120,6 +120,19 @@ button {
   z-index: 100;
 }
 
+/* iOS Safari keeps fixed elements below the status bar but still draws the page behind it.
+   Extend the nav's background up into that strip so scrolled content can't show through. */
+.top-nav::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: 100vh;
+  background: var(--surface);
+  pointer-events: none;
+}
+
 .nav-prefix {
   display: inline-flex;
   align-items: center;
