@@ -10,9 +10,9 @@ export const PROJECTS: Project[] = [
     techStack: ['AudioFlamingo3', 'VLLM', 'Docker', 'Kubernetes', 'RAG'],
     metrics: 'Sub-second latency target • RAG-backed context',
     featured: true,
-    githubUrl: 'https://github.com/madhavkataria1010/jarvis-voice-assistant',
+    githubUrl: 'https://github.com/AISocietyIITJ/Jarvis2.O',
     detailLinks: [
-      { label: 'work Github', href: 'https://github.com/madhavkataria1010/jarvis-voice-assistant' },
+      { label: 'GitHub', href: 'https://github.com/AISocietyIITJ/Jarvis2.O' },
     ]
   },
   {
@@ -24,9 +24,9 @@ export const PROJECTS: Project[] = [
     techStack: ['Python', 'Playwright', 'CrewAI', 'SQLite'],
     metrics: '35% faster queries • 22% higher retrieval accuracy',
     featured: true,
-    githubUrl: 'https://github.com/madhavkataria1010/intelli-browser',
+    githubUrl: 'https://github.com/devlup-labs/Intelligent-Browser',
     detailLinks: [
-      { label: 'work Github', href: 'https://github.com/madhavkataria1010/intelli-browser' },
+      { label: 'GitHub', href: 'https://github.com/devlup-labs/Intelligent-Browser' },
     ]
   },
   {
@@ -38,9 +38,9 @@ export const PROJECTS: Project[] = [
     techStack: ['Pathway', 'FastAPI', 'JinaAI', 'Gradio'],
     metrics: '500k+ events/min • 95.27% relevance',
     featured: false,
-    githubUrl: 'https://github.com/madhavkataria1010/dynamic-rag',
+    githubUrl: 'https://github.com/madhavkataria1010/DynamicAgenticRAG',
     detailLinks: [
-      { label: 'work Github', href: 'https://github.com/madhavkataria1010/dynamic-rag' },
+      { label: 'GitHub', href: 'https://github.com/madhavkataria1010/DynamicAgenticRAG' },
     ]
   },
   {
@@ -52,9 +52,9 @@ export const PROJECTS: Project[] = [
     techStack: ['C++', 'Gemini API', 'Graph Algos', 'CMake'],
     metrics: '+12% engagement • Optimized Minimax',
     featured: false,
-    githubUrl: 'https://github.com/madhavkataria1010/realm-weaver',
+    githubUrl: 'https://github.com/madhavkataria1010/RealmWeaver',
     detailLinks: [
-      { label: 'work Github', href: 'https://github.com/madhavkataria1010/realm-weaver' },
+      { label: 'GitHub', href: 'https://github.com/madhavkataria1010/RealmWeaver' },
     ]
   },
   {
@@ -66,9 +66,9 @@ export const PROJECTS: Project[] = [
     techStack: ['VLMs', 'GANs', 'LoRA', 'PyTorch'],
     metrics: '85% accuracy • 500k+ image dataset',
     featured: false,
-    githubUrl: 'https://github.com/madhavkataria1010/adobe-challenge',
+    githubUrl: 'https://github.com/madhavkataria1010/AI-Image-Explainability',
     detailLinks: [
-      { label: 'work Github', href: 'https://github.com/madhavkataria1010/adobe-challenge' },
+      { label: 'GitHub', href: 'https://github.com/madhavkataria1010/AI-Image-Explainability' },
     ]
   },
   {
@@ -102,7 +102,7 @@ export const PROJECTS: Project[] = [
     featured: false,
     githubUrl: 'https://github.com/madhavkataria1010/ics_majorproject',
     detailLinks: [
-      { label: 'work Github', href: 'https://github.com/madhavkataria1010/ics_majorproject' },
+      { label: 'GitHub', href: 'https://github.com/madhavkataria1010/ics_majorproject' },
     ]
   },
 ];
@@ -120,153 +120,6 @@ export const PAPERS: ResearchPaper[] = [
 ];
 
 export const BLOG_POSTS: BlogPost[] = [
-  {
-    id: 'b5',
-    slug: 'understanding-blockchain-beyond-the-hype',
-    title: 'Understanding Blockchain Beyond the Hype',
-    date: 'August 18, 2025',
-    readTime: '7 min read',
-    excerpt: 'Breaking down blockchain technology from first principles — consensus mechanisms, immutability, and why it matters beyond crypto.',
-    tags: ['Blockchain', 'Web3', 'Distributed Systems'],
-    content: `
-Blockchain has become one of the most misunderstood technologies of our time. Strip away the hype, and at its core, it's a **distributed, append-only ledger** with a clever consensus mechanism.
-
-## What Actually Makes Blockchain Work?
-
-There are three fundamental properties that give blockchain its power:
-
-### 1. Immutability Through Hashing
-Every block contains a **cryptographic hash** of the previous block. Tampering with any historical record would invalidate every subsequent hash, making fraud computationally infeasible.
-
-\`\`\`
-Block N:   { data, hash(Block N-1), nonce }
-Block N+1: { data, hash(Block N),   nonce }
-\`\`\`
-
-### 2. Decentralized Consensus
-No single entity controls the ledger. Nodes agree on the state of the chain through mechanisms like **Proof of Work (PoW)** or **Proof of Stake (PoS)**.
-
-### 3. Transparency
-Every transaction is publicly verifiable. You don't need to trust a central authority — you verify it yourself.
-
-## Beyond Cryptocurrency
-
-While crypto gets the headlines, blockchain's real potential lies elsewhere:
-
-*   **Supply Chain:** Track goods from manufacturer to consumer with an immutable audit trail.
-*   **Healthcare:** Patient records shared securely across providers without a central database.
-*   **Voting Systems:** Tamper-proof digital voting with full auditability.
-*   **DeFi:** Decentralized finance protocols that remove intermediaries from lending, borrowing, and trading.
-
-## The Trade-offs
-
-Blockchain isn't a silver bullet. The **blockchain trilemma** (decentralization, security, scalability — pick two) remains a core challenge. Layer 2 solutions like rollups and sidechains are actively working to solve this.
-
-> "Not everything needs a blockchain. But when trust is the problem, blockchain is a powerful answer."
-
-The key is knowing **when** to use it and when a traditional database is the better tool.
-    `
-  },
-  {
-    id: 'b6',
-    slug: 'bitcoin-digital-gold-or-the-future-of-money',
-    title: 'Bitcoin: Digital Gold or the Future of Money?',
-    date: 'August 25, 2025',
-    readTime: '6 min read',
-    excerpt: 'Exploring Bitcoin\'s dual narrative — a store of value like gold, or a peer-to-peer currency that could reshape global finance.',
-    tags: ['Bitcoin', 'Crypto', 'Finance'],
-    content: `
-Bitcoin was born in 2009 from a whitepaper by the pseudonymous **Satoshi Nakamoto**. Over 16 years later, the debate continues: is Bitcoin **digital gold** or **digital cash**?
-
-## The Store of Value Argument
-
-Bitcoin has a **hard cap of 21 million coins**. No government, no central bank, no entity can print more. This fixed supply, combined with the halving mechanism (block rewards cut in half roughly every 4 years), creates a deflationary asset.
-
-*   **2012 Halving:** 50 → 25 BTC per block
-*   **2016 Halving:** 25 → 12.5 BTC
-*   **2020 Halving:** 12.5 → 6.25 BTC
-*   **2024 Halving:** 6.25 → 3.125 BTC
-
-Each halving has historically preceded a major bull run. The scarcity narrative is powerful.
-
-## The Currency Argument
-
-The original whitepaper was titled *"A Peer-to-Peer Electronic Cash System."* Bitcoin was meant to be spent, not hoarded. The **Lightning Network** — a Layer 2 solution — enables near-instant, low-fee transactions on top of Bitcoin's base layer.
-
-\`\`\`
-Base Layer (L1): Settlement — slow, expensive, ultra-secure
-Lightning (L2):  Payments — instant, cheap, scalable
-\`\`\`
-
-Countries like **El Salvador** have adopted Bitcoin as legal tender, testing the currency thesis in the real world.
-
-## My Take
-
-Both narratives can coexist. Bitcoin serves as a **settlement layer and store of value** on L1, while Lightning and other L2s handle everyday payments. The real question isn't *"gold or cash?"* — it's whether the ecosystem can scale without compromising decentralization.
-
-> "Bitcoin is whatever its users need it to be."
-
-Whether you see it as an investment, a hedge against inflation, or a tool for financial inclusion — Bitcoin has earned its place in the conversation about the future of money.
-    `
-  },
-  {
-    id: 'b7',
-    slug: 'smart-contracts-and-the-programmable-economy',
-    title: 'Smart Contracts and the Programmable Economy',
-    date: 'September 5, 2025',
-    readTime: '5 min read',
-    excerpt: 'How Ethereum\'s smart contracts enable trustless automation — from DeFi protocols to NFTs and beyond.',
-    tags: ['Ethereum', 'Smart Contracts', 'DeFi'],
-    content: `
-If Bitcoin is **programmable money**, Ethereum is a **programmable economy**. The introduction of **smart contracts** — self-executing code deployed on the blockchain — opened the door to applications that were previously impossible without trusted intermediaries.
-
-## What is a Smart Contract?
-
-A smart contract is simply code stored on the blockchain that executes automatically when predefined conditions are met. No middleman, no downtime, no censorship.
-
-\`\`\`solidity
-// A simple escrow contract
-contract Escrow {
-    address buyer;
-    address seller;
-
-    function release() public {
-        require(msg.sender == buyer);
-        payable(seller).transfer(address(this).balance);
-    }
-}
-\`\`\`
-
-Once deployed, this contract is **immutable** — it will execute exactly as written, every time.
-
-## The DeFi Revolution
-
-Decentralized Finance (DeFi) protocols are the most compelling use case for smart contracts today:
-
-*   **Uniswap:** Automated market making — swap tokens without an order book or exchange.
-*   **Aave:** Lending and borrowing without a bank. Collateral is managed entirely on-chain.
-*   **MakerDAO:** A decentralized stablecoin (DAI) backed by crypto collateral.
-
-These protocols run 24/7, are permissionless, and are composable — you can stack them like **money legos**.
-
-## The Risks
-
-Smart contracts are only as good as their code. Bugs can be catastrophic:
-
-*   The **DAO hack** (2016) exploited a reentrancy bug, draining $60M in ETH.
-*   Flash loan attacks have exploited poorly designed price oracles.
-
-> "Code is law — until there's a bug."
-
-Formal verification, auditing, and battle-tested patterns like **OpenZeppelin** libraries are essential for building secure contracts.
-
-## Looking Ahead
-
-With Ethereum's move to **Proof of Stake** and the growth of Layer 2 rollups (Arbitrum, Optimism, Base), the programmable economy is becoming faster and cheaper. The next wave will bring **real-world assets** (RWAs) on-chain — tokenized stocks, bonds, and real estate.
-
-The future isn't just decentralized finance. It's a **decentralized everything**.
-    `
-  },
   {
     id: 'b1',
     slug: 'the-future-of-agentic-workflows',
