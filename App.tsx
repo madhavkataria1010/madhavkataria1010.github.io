@@ -15,7 +15,7 @@ const LINKEDIN = 'https://www.linkedin.com/in/madhavkataria/';
 const TWITTER = 'https://twitter.com/madhav_kataria';
 const SCHOLAR = 'https://scholar.google.com/citations?user=wC2Wm9gAAAAJ&hl=en';
 const CV_URL = '/madhav-kataria-cv.pdf';
-const ABOUT_AVATAR = '/gibli.jpeg';
+const ABOUT_AVATAR = '/madhav.jpg';
 const SITE_HOST = 'madhavkataria.com';
 
 const NAV_ITEMS = [
