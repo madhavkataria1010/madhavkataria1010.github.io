@@ -857,6 +857,8 @@ const Layout = () => {
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
     window.localStorage.setItem('portfolio-theme', theme);
+    // Keep the browser's status bar tint in step with the nav (--surface).
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#111111' : '#f2efe9');
   }, [theme]);
 
   const handleTerminalSubmit = (event: React.FormEvent<HTMLFormElement>) => {
