@@ -116,7 +116,7 @@ button {
   border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
-  padding: env(safe-area-inset-top) 28px 0;
+  padding: env(safe-area-inset-top) max(28px, env(safe-area-inset-right)) 0 max(28px, env(safe-area-inset-left));
   z-index: 100;
 }
 
@@ -206,7 +206,7 @@ button {
 main {
   max-width: 860px;
   margin: 0 auto;
-  padding: calc(70px + env(safe-area-inset-top)) 28px calc(80px + env(safe-area-inset-bottom));
+  padding: calc(70px + env(safe-area-inset-top)) max(28px, env(safe-area-inset-right)) calc(80px + env(safe-area-inset-bottom)) max(28px, env(safe-area-inset-left));
 }
 
 .boot-header,
@@ -880,7 +880,7 @@ main {
 @media (max-width: 760px) {
   .top-nav {
     height: calc(42px + env(safe-area-inset-top));
-    padding: env(safe-area-inset-top) 8px 0;
+    padding: env(safe-area-inset-top) max(8px, env(safe-area-inset-right)) 0 max(8px, env(safe-area-inset-left));
   }
 
   .nav-prefix {
@@ -898,7 +898,7 @@ main {
   }
 
   main {
-    padding: calc(64px + env(safe-area-inset-top)) 14px calc(96px + env(safe-area-inset-bottom));
+    padding: calc(64px + env(safe-area-inset-top)) max(14px, env(safe-area-inset-right)) calc(96px + env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left));
   }
 
   .boot-header {
