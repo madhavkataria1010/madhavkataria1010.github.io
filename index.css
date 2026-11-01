@@ -359,6 +359,11 @@ main {
   color: var(--accent-2);
 }
 
+/* In the bio, topic highlights stay at normal weight so the bolder links to people and places stand out. */
+.bio .hl {
+  font-weight: 400;
+}
+
 .contact-row,
 .chip-row,
 .detail-links,

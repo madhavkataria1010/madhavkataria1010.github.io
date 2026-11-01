@@ -18,6 +18,16 @@ const CV_URL = '/madhav-kataria-cv.pdf';
 const CRCV_URL = 'https://www.crcv.ucf.edu/';
 const SONY_URL = 'https://www.sonyresearchindia.com/';
 const IAB_URL = 'http://iab-rubric.org/';
+const IITJ_URL = 'https://iitj.ac.in/';
+const UCF_URL = 'https://www.ucf.edu/';
+const ARISTA_URL = 'https://www.arista.com/';
+const NEURIPS_URL = 'https://neurips.cc/';
+const VYAS_URL = 'https://vyas-lab.github.io/';
+const VATSA_URL = 'http://home.iitj.ac.in/~mvatsa/';
+const RICHA_URL = 'http://home.iitj.ac.in/~richa/';
+const RAWAT_URL = 'https://scholar.google.com/citations?user=D_JvEcwAAAAJ';
+const AISTORY_URL = 'https://iccv.thecvf.com/virtual/2025/workshop/2807';
+const LUHME_URL = 'https://luhme.up.pt/';
 const ABOUT_AVATAR = '/madhav.jpg';
 const SITE_HOST = 'madhavkataria.com';
 
@@ -145,7 +155,9 @@ const SectionCommand = ({
   </div>
 );
 
-const TextBlock = ({ children }: { children: React.ReactNode }) => <div className="block">{children}</div>;
+const TextBlock = ({ children, className }: { children: React.ReactNode; className?: string }) => (
+  <div className={className ? `block ${className}` : 'block'}>{children}</div>
+);
 
 const Hl = ({ children }: { children: React.ReactNode }) => <span className="hl">{children}</span>;
 
@@ -462,22 +474,25 @@ const AboutPage = ({
       </div>
 
       <SectionCommand command="cat" arg="about.txt" />
-      <TextBlock>
+      <TextBlock className="bio">
         <p>
-          My name is Madhav, and I'm a final-year undergrad at IIT Jodhpur, studying Chemical Engineering with a minor
-          in AI. I work on <Hl>multimodal models</Hl>, mostly on what happens when <Hl>the input gets long</Hl>. A
+          My name is Madhav, and I'm a final-year undergrad at <ExtLink href={IITJ_URL}>IIT Jodhpur</ExtLink>, studying
+          Chemical Engineering with a minor in AI. I work on <Hl>multimodal models</Hl>, mostly on what happens when <Hl>the input gets long</Hl>. A
           model can describe any single manga panel you show it and still lose track of the main character a few
           chapters later. I want to know why that happens, and how to fix it in a way that{' '}
           <Hl>carries over from one model to the next</Hl>.
         </p>
         <p>
           Right now I'm a research intern at the{' '}
-          <ExtLink href={CRCV_URL}>Center for Research in Computer Vision (CRCV)</ExtLink> at UCF, where I work with
-          Dr. Yogesh Rawat and Dr. Shruti Vyas on <Hl>long-horizon visual understanding</Hl>, mostly through manga.
-          Our first paper, <PaperLink id="p1">Re:Verse</PaperLink>, won Best Paper at the ICCV 2025 AISTORY workshop,
-          and <PaperLink id="p2">Re:Cognize</PaperLink>, where I'm co-first author, is at NeurIPS 2026. Back at IIT
-          Jodhpur, I also work with Dr. Mayank Vatsa and Dr. Richa Singh in the{' '}
-          <ExtLink href={IAB_URL}>Image Analysis and Biometrics Lab</ExtLink>.
+          <ExtLink href={CRCV_URL}>Center for Research in Computer Vision (CRCV)</ExtLink> at{' '}
+          <ExtLink href={UCF_URL}>UCF</ExtLink>, where I work with <ExtLink href={RAWAT_URL}>Dr. Yogesh Rawat</ExtLink>{' '}
+          and <ExtLink href={VYAS_URL}>Dr. Shruti Vyas</ExtLink> on <Hl>long-horizon visual understanding</Hl>, mostly
+          through manga. Our first paper, <PaperLink id="p1">Re:Verse</PaperLink>, won Best Paper at the{' '}
+          <ExtLink href={AISTORY_URL}>ICCV 2025 AISTORY workshop</ExtLink>, and{' '}
+          <PaperLink id="p2">Re:Cognize</PaperLink>, where I'm co-first author, is at{' '}
+          <ExtLink href={NEURIPS_URL}>NeurIPS 2026</ExtLink>. Back at IIT Jodhpur, I also work with{' '}
+          <ExtLink href={VATSA_URL}>Dr. Mayank Vatsa</ExtLink> and <ExtLink href={RICHA_URL}>Dr. Richa Singh</ExtLink>{' '}
+          in the <ExtLink href={IAB_URL}>Image Analysis and Biometrics Lab</ExtLink>.
         </p>
         <p>
           I'm also a research intern at <ExtLink href={SONY_URL}>Sony Research India</ExtLink>. My main project there
@@ -485,7 +500,8 @@ const AboutPage = ({
           test decisions like release timing or a catalog refresh before they go live, using only past logs. It
           sounds far from manga, but it's the same problem underneath: over a long rollout,{' '}
           <Hl>small errors pile up</Hl> unless something structural keeps the model in check. I also worked on{' '}
-          <PaperLink id="p3">PlotTwist</PaperLink> (oral, EMNLP 2026 LUHME workshop), which shows that{' '}
+          <PaperLink id="p3">PlotTwist</PaperLink> (oral, <ExtLink href={LUHME_URL}>EMNLP 2026 LUHME workshop</ExtLink>),
+          which shows that{' '}
           <Hl>small language models</Hl> can write movie plots that match or beat much larger frontier models.
         </p>
         <p>
@@ -495,7 +511,8 @@ const AboutPage = ({
         </p>
         <p>
           I also like building things that work outside a notebook. I led the ML side of our Inter IIT Tech Meet team,
-          which placed <Hl>first of 23 IITs</Hl> on Arista Networks' WiFi problem, and I've built{' '}
+          which placed <Hl>first of 23 IITs</Hl> on <ExtLink href={ARISTA_URL}>Arista Networks</ExtLink>' WiFi problem,
+          and I've built{' '}
           <Link to="/projects" className="prose-link">voice agents, browser agents and RAG systems</Link> along the
           way.
         </p>
@@ -543,7 +560,7 @@ const AboutPage = ({
         <div className="log-entry">
           <span className="log-ts">2026-09</span>
           <span className="log-lvl paper">PAPER</span>
-          <span className="log-msg"><PaperLink id="p2">Re:Cognize</PaperLink>, on recognizing manga characters page by page as new ones keep showing up, was accepted at NeurIPS 2026. I'm co-first author.</span>
+          <span className="log-msg"><PaperLink id="p2">Re:Cognize</PaperLink>, on recognizing manga characters page by page as new ones keep showing up, was accepted at <ExtLink href={NEURIPS_URL}>NeurIPS 2026</ExtLink>. I'm co-first author.</span>
         </div>
         <div className="log-entry">
           <span className="log-ts">2026-06</span>
@@ -553,22 +570,22 @@ const AboutPage = ({
         <div className="log-entry">
           <span className="log-ts">2025-12</span>
           <span className="log-lvl note">NOTE</span>
-          <span className="log-msg">Our Inter IIT Tech Meet team won gold, placing first of 23 IITs on Arista Networks' problem, on tuning dense office WiFi without making any client worse off.</span>
+          <span className="log-msg">Our Inter IIT Tech Meet team won gold, placing first of 23 IITs on <ExtLink href={ARISTA_URL}>Arista Networks</ExtLink>' problem, on tuning dense office WiFi without making any client worse off.</span>
         </div>
         <div className="log-entry">
           <span className="log-ts">2025-08</span>
           <span className="log-lvl paper">PAPER</span>
-          <span className="log-msg"><PaperLink id="p1">Re:Verse</PaperLink>, on whether multimodal models can actually follow a manga story, won Best Paper and an oral (top 5%) at the ICCV 2025 AISTORY workshop.</span>
+          <span className="log-msg"><PaperLink id="p1">Re:Verse</PaperLink>, on whether multimodal models can actually follow a manga story, won Best Paper and an oral (top 5%) at the <ExtLink href={AISTORY_URL}>ICCV 2025 AISTORY workshop</ExtLink>.</span>
         </div>
         <div className="log-entry">
           <span className="log-ts">2025-06</span>
           <span className="log-lvl new">NEW</span>
-          <span className="log-msg">Started at <ExtLink href={CRCV_URL}>CRCV, UCF</ExtLink>, working with Dr. Yogesh Rawat and Dr. Shruti Vyas.</span>
+          <span className="log-msg">Started at <ExtLink href={CRCV_URL}>CRCV, UCF</ExtLink>, working with <ExtLink href={RAWAT_URL}>Dr. Yogesh Rawat</ExtLink> and <ExtLink href={VYAS_URL}>Dr. Shruti Vyas</ExtLink>.</span>
         </div>
         <div className="log-entry">
           <span className="log-ts">2024-09</span>
           <span className="log-lvl new">NEW</span>
-          <span className="log-msg">Joined the <ExtLink href={IAB_URL}>Image Analysis and Biometrics Lab</ExtLink> at IIT Jodhpur, working with Dr. Mayank Vatsa and Dr. Richa Singh.</span>
+          <span className="log-msg">Joined the <ExtLink href={IAB_URL}>Image Analysis and Biometrics Lab</ExtLink> at IIT Jodhpur, working with <ExtLink href={VATSA_URL}>Dr. Mayank Vatsa</ExtLink> and <ExtLink href={RICHA_URL}>Dr. Richa Singh</ExtLink>.</span>
         </div>
       </div>
 
